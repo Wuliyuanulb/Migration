@@ -5,6 +5,7 @@
 import re
 import base64
 import json
+import glob
 
 from azure.identity import AzureCliCredential
 from azure.keyvault.certificates import CertificateClient
@@ -16,10 +17,8 @@ from azure.core.exceptions import ResourceNotFoundError
 
 # The following parameters need to be updated by region/service.
 SUB_SERIES = "MAML-2"
-FOLDER_NAME = "SnrExp"
-DEST_LOCATION = "southeastasia"
-INPUT_PARAMETER_JSON = \
-    fr".\{FOLDER_NAME}\snr-exp-prod-asiasoutheast-001-Production-Southeast Asia_CloudService.Parameters.json"
+FOLDER_NAME = "es-prod"
+global DEST_LOCATION
 #############################################################################################
 
 
@@ -290,9 +289,9 @@ def _get_certificate_version_in_dest_key_vault(
     raise Exception(f"Failed to find certificate {source_cert_name} in key vault {DEST_VAULT_NAME}")
 
 
-def main():
+def map_source_dest_url(input_parameter_json):
     source_dest_url_mapping = list()
-    cert_section = _get_cert_section_from_input_file(INPUT_PARAMETER_JSON)
+    cert_section = _get_cert_section_from_input_file(input_parameter_json)
 
     for c in cert_section:
         mapping_dict = {
@@ -345,5 +344,16 @@ def main():
         json.dump(source_dest_url_mapping, f, indent=4)
 
 
+def _get_files():
+    file_name_format = "{}/{}-*-001-Production-*CloudService.Parameters.json".format(FOLDER_NAME, FOLDER_NAME)
+    files = glob.glob(file_name_format)
+    print("files:", files)
+    return files
+
+
 if __name__ == "__main__":
-    main()
+    files = _get_files()
+    for file in files:
+        DEST_LOCATION = file.split("-")[-1][:-len("_CloudService.Parameters.json")].replace(" ", "").lower()
+        print(DEST_LOCATION)
+        map_source_dest_url(file)
