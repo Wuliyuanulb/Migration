@@ -287,8 +287,7 @@ def _get_files():
 
 
 def source_dest_url_mapping(input_parameter_json):
-    source_dest_url_mapping = list()
-    print(SUBSCRIPTION_ID)
+    source_dest_url_mapping = []
     cert_section = _get_cert_section_from_input_file(input_parameter_json)
 
     for c in cert_section:
