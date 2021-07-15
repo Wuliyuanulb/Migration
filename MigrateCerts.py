@@ -282,10 +282,11 @@ def _get_certificate_version_in_dest_key_vault(
 def _get_files():
     file_name_format = "{}/{}-*-001-Production-*CloudService.Parameters.json".format(FOLDER_NAME, FOLDER_NAME)
     files = glob.glob(file_name_format)
+    print("All parameter files:", files)
     return files
 
 
-def map_source_dest_url(input_parameter_json):
+def source_dest_url_mapping(input_parameter_json):
     source_dest_url_mapping = list()
     print(SUBSCRIPTION_ID)
     cert_section = _get_cert_section_from_input_file(input_parameter_json)
@@ -345,11 +346,11 @@ if __name__ == "__main__":
     files = _get_files()
     for file in files:
         DEST_LOCATION = file.split("-")[-1][:-len("_CloudService.Parameters.json")].replace(" ", "").lower()
-        print(DEST_LOCATION)
+        print("DEST_LOCATION:", DEST_LOCATION)
         DEST_VAULT_NAME = get_dest_vault_name(DEST_LOCATION, SUB_SERIES)
         DEST_VAULT_URL = f"https://{DEST_VAULT_NAME}.vault.azure.net"
         OUTPUT_CERT_MAPPING_JSON = rf".\{FOLDER_NAME}\cert_mapping_{DEST_LOCATION}.json"
         secret_client_cache_dict = {}
         cert_client_cache_dict = {}
         SUBSCRIPTION_ID = get_subscription_id(DEST_LOCATION, SUB_SERIES)
-        map_source_dest_url(file)
+        source_dest_url_mapping(file)
