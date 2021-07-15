@@ -21,7 +21,6 @@ FOLDER_NAME = "es-prod"
 global DEST_LOCATION
 #############################################################################################
 
-
 LOCATION_TO_SUB_IDs = {
     "centraluseuap": {
         "MAML-1": "1220ed94-c61b-4690-b5c6-acc242a69250",
@@ -104,15 +103,6 @@ def get_dest_vault_name(location: str, sub_series: str) -> str:
         raise ValueError(f"Location short name not found for location {location}")
 
     return f"studio-{location_short_name}-{sub_series}"
-
-
-DEST_VAULT_NAME = get_dest_vault_name(DEST_LOCATION, SUB_SERIES)
-DEST_VAULT_URL = f"https://{DEST_VAULT_NAME}.vault.azure.net"
-OUTPUT_CERT_MAPPING_JSON = rf".\{FOLDER_NAME}\cert_mapping_{DEST_LOCATION}.json"
-
-secret_client_cache_dict = dict()
-cert_client_cache_dict = dict()
-SUBSCRIPTION_ID = get_subscription_id(DEST_LOCATION, SUB_SERIES)
 
 
 def _create_dest_key_vault():
@@ -289,8 +279,15 @@ def _get_certificate_version_in_dest_key_vault(
     raise Exception(f"Failed to find certificate {source_cert_name} in key vault {DEST_VAULT_NAME}")
 
 
+def _get_files():
+    file_name_format = "{}/{}-*-001-Production-*CloudService.Parameters.json".format(FOLDER_NAME, FOLDER_NAME)
+    files = glob.glob(file_name_format)
+    return files
+
+
 def map_source_dest_url(input_parameter_json):
     source_dest_url_mapping = list()
+    print(SUBSCRIPTION_ID)
     cert_section = _get_cert_section_from_input_file(input_parameter_json)
 
     for c in cert_section:
@@ -344,16 +341,15 @@ def map_source_dest_url(input_parameter_json):
         json.dump(source_dest_url_mapping, f, indent=4)
 
 
-def _get_files():
-    file_name_format = "{}/{}-*-001-Production-*CloudService.Parameters.json".format(FOLDER_NAME, FOLDER_NAME)
-    files = glob.glob(file_name_format)
-    print("files:", files)
-    return files
-
-
 if __name__ == "__main__":
     files = _get_files()
     for file in files:
         DEST_LOCATION = file.split("-")[-1][:-len("_CloudService.Parameters.json")].replace(" ", "").lower()
         print(DEST_LOCATION)
+        DEST_VAULT_NAME = get_dest_vault_name(DEST_LOCATION, SUB_SERIES)
+        DEST_VAULT_URL = f"https://{DEST_VAULT_NAME}.vault.azure.net"
+        OUTPUT_CERT_MAPPING_JSON = rf".\{FOLDER_NAME}\cert_mapping_{DEST_LOCATION}.json"
+        secret_client_cache_dict = {}
+        cert_client_cache_dict = {}
+        SUBSCRIPTION_ID = get_subscription_id(DEST_LOCATION, SUB_SERIES)
         map_source_dest_url(file)
