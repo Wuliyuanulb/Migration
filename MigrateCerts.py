@@ -7,6 +7,7 @@ import base64
 import json
 import glob
 import subprocess
+import os
 
 from azure.identity import AzureCliCredential
 from azure.keyvault.certificates import CertificateClient
@@ -27,6 +28,8 @@ DEST_RESOURCE_GROUP_NAME = "studio-migration"
 #############################################################################################
 
 global DEST_LOCATION
+MAPPING_FOLDER = 'mapping_folder'
+os.mkdir('{FOLDER_NAME}\{MAPPING_FOLDER}')
 LOCATION_TO_SUB_IDs = {
     "centraluseuap": {
         "MAML-1": "1220ed94-c61b-4690-b5c6-acc242a69250",
@@ -366,14 +369,15 @@ def source_dest_url_mapping(input_parameter_json):
 
 
 if __name__ == "__main__":
-    files = _get_files()
+    # files = _get_files()
+    files = ["catalog-ca/catalog-ca-westus-1_UpdateService_Parameters.json"]
     for file in files:
         # DEST_LOCATION = file.split("-")[-1][:-len("_CloudService.Parameters.json")].replace(" ", "").lower()
         DEST_LOCATION = _get_location_from_file_name(file)
         print("DEST_LOCATION:", DEST_LOCATION)
         DEST_VAULT_NAME = get_dest_vault_name(DEST_LOCATION, SUB_SERIES)
         DEST_VAULT_URL = f"https://{DEST_VAULT_NAME}.vault.azure.net"
-        OUTPUT_CERT_MAPPING_JSON = rf".\{FOLDER_NAME}\cert_mapping_{DEST_LOCATION}.json"
+        OUTPUT_CERT_MAPPING_JSON = rf".\{FOLDER_NAME}\{MAPPING_FOLDER}\cert_mapping_{DEST_LOCATION}.json"
         secret_client_cache_dict = {}
         cert_client_cache_dict = {}
         SUBSCRIPTION_ID = get_subscription_id(DEST_LOCATION, SUB_SERIES)

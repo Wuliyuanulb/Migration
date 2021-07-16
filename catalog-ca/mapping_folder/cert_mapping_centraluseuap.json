@@ -1,0 +1,27 @@
+[
+    {
+        "name": "decryptionCert",
+        "sourceUrl": "https://community-catalog-prod.vault.azure.net/secrets/DecryptCert",
+        "destUrl": "https://studio-usce-MAML-4-comm.vault.azure.net:443/secrets/community-catalog-prod--DecryptCert/17e8da3d1eef4bbdaa78e169c4e78810"
+    },
+    {
+        "name": "sslCert",
+        "sourceUrl": "https://community-catalog-prod.vault.azure.net/secrets/CatalogSSLCanaryCertificate",
+        "destUrl": "https://studio-usce-MAML-4-comm.vault.azure.net:443/secrets/community-catalog-prod--CatalogSSLCanaryCertificate/dee9ab87f6864516af156b9a35475167"
+    },
+    {
+        "name": "indexServiceAuthCert",
+        "sourceUrl": "https://community-catalog-prod.vault.azure.net/secrets/IndexServiceCanaryAuthCertificate",
+        "destUrl": "https://studio-usce-MAML-4-comm.vault.azure.net:443/secrets/community-catalog-prod--IndexServiceCanaryAuthCertificate/006786fd6adf4d61a526190555abb6da"
+    },
+    {
+        "name": "gcsCert",
+        "sourceUrl": "https://community-catalog-prod.vault.azure.net/secrets/cigallerycataloggcs/",
+        "destUrl": "https://studio-usce-MAML-4-comm.vault.azure.net:443/secrets/community-catalog-prod--cigallerycataloggcs/2b3ab3dada0043d7938d41410ec95b09"
+    },
+    {
+        "name": "packingServiceAuthCert",
+        "sourceUrl": "https://community-catalog-prod.vault.azure.net/secrets/PackingServiceAuthCertificate",
+        "destUrl": "https://studio-usce-MAML-4-comm.vault.azure.net:443/secrets/community-catalog-prod--PackingServiceAuthCertificate/d3ef0e5d0e404229ba3e19004216156a"
+    }
+]
