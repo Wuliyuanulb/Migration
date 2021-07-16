@@ -304,7 +304,10 @@ def _assign_kv_policy():
               "--subscription {} " \
               "--object-id {}"\
         .format(DEST_VAULT_NAME, secret_permissions, certificate_permissions, SUBSCRIPTION_ID, OBJECT_ID)
-    subprocess.check_call(command, shell=True)
+    try:
+        subprocess.check_call(command, shell=True)
+    except Exception as e:
+        raise Exception(e)
 
 
 def source_dest_url_mapping(input_parameter_json):
