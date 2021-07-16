@@ -6,6 +6,7 @@ import re
 import base64
 import json
 import glob
+import subprocess
 
 from azure.identity import AzureCliCredential
 from azure.keyvault.certificates import CertificateClient
@@ -19,9 +20,12 @@ from azure.core.exceptions import ResourceNotFoundError
 SUB_SERIES = "MAML-4-comm"
 FOLDER_NAME = "catalog-ca"
 FILE_NAME_FORMAT = "{}/{}-*-1*Parameters.json".format(FOLDER_NAME, FOLDER_NAME)
-global DEST_LOCATION
+# Object id of your own microsoft account.
+OBJECT_ID = "8f919de4-02b0-48de-ba4c-a13be2e19c33"
+DEST_RESOURCE_GROUP_NAME = "studio-migration"
 #############################################################################################
 
+global DEST_LOCATION
 LOCATION_TO_SUB_IDs = {
     "centraluseuap": {
         "MAML-1": "1220ed94-c61b-4690-b5c6-acc242a69250",
@@ -67,16 +71,9 @@ LOCATION_SHORT_NAME = {
     "westus": "wus"
 }
 SUB_SERIES_WHITE_LIST = ["MAML-1", "MAML-2", "MAML-4-comm", "MAML-13-UX"]
-
-# Object id of your own microsoft account.
-OBJECT_ID = "48d778e1-dc10-421b-8a65-4ac90dc3c21b"
-
-
-DEST_RESOURCE_GROUP_NAME = "studio-migration"
 TENANT_ID = "72f988bf-86f1-41af-91ab-2d7cd011db47"
 # Application used for ev2 deployment in release pipeline.
 DEPLOYMENT_APP_OBJECT_ID = "cbdda706-d154-4831-85c5-58f6a3765b3f"
-
 
 def get_subscription_id(location: str, sub_series: str) -> str:
     if sub_series not in SUB_SERIES_WHITE_LIST:
@@ -287,6 +284,21 @@ def _get_files():
     return files
 
 
+def _assign_kv_policy():
+    # assign kv access policy
+    secret_permissions = "get list set delete backup restore recover"
+    certificate_permissions = "get list delete create import update managecontacts getissuers listissuers setissuers " \
+                              "deleteissuers manageissuers recover backup restore get list delete set update " \
+                              "regeneratekey recover backup restore setsas listsas listsas deletesas"
+    command = "az keyvault set-policy " \
+              "--name {} " \
+              "--secret-permissions {} " \
+              "--certificate-permissions {} " \
+              "--subscription {} " \
+              "--object-id {}"\
+        .format(DEST_VAULT_NAME, secret_permissions, certificate_permissions, SUBSCRIPTION_ID, OBJECT_ID)
+    subprocess.check_call(command, shell=True)
+
 def source_dest_url_mapping(input_parameter_json):
     source_dest_url_mapping = []
     cert_section = _get_cert_section_from_input_file(input_parameter_json)
@@ -350,6 +362,7 @@ if __name__ == "__main__":
         print("DEST_LOCATION:", DEST_LOCATION)
         DEST_VAULT_NAME = get_dest_vault_name(DEST_LOCATION, SUB_SERIES)
         DEST_VAULT_URL = f"https://{DEST_VAULT_NAME}.vault.azure.net"
+        _assign_kv_policy()
         OUTPUT_CERT_MAPPING_JSON = rf".\{FOLDER_NAME}\cert_mapping_{DEST_LOCATION}.json"
         secret_client_cache_dict = {}
         cert_client_cache_dict = {}
