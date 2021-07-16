@@ -288,8 +288,7 @@ def _assign_kv_policy():
     # assign kv access policy
     secret_permissions = "get list set delete backup restore recover"
     certificate_permissions = "get list delete create import update managecontacts getissuers listissuers setissuers " \
-                              "deleteissuers manageissuers recover backup restore get list delete set update " \
-                              "regeneratekey recover backup restore setsas listsas listsas deletesas"
+                              "deleteissuers manageissuers recover backup restore"
     command = "az keyvault set-policy " \
               "--name {} " \
               "--secret-permissions {} " \
@@ -298,6 +297,7 @@ def _assign_kv_policy():
               "--object-id {}"\
         .format(DEST_VAULT_NAME, secret_permissions, certificate_permissions, SUBSCRIPTION_ID, OBJECT_ID)
     subprocess.check_call(command, shell=True)
+
 
 def source_dest_url_mapping(input_parameter_json):
     source_dest_url_mapping = []
@@ -362,9 +362,9 @@ if __name__ == "__main__":
         print("DEST_LOCATION:", DEST_LOCATION)
         DEST_VAULT_NAME = get_dest_vault_name(DEST_LOCATION, SUB_SERIES)
         DEST_VAULT_URL = f"https://{DEST_VAULT_NAME}.vault.azure.net"
-        _assign_kv_policy()
         OUTPUT_CERT_MAPPING_JSON = rf".\{FOLDER_NAME}\cert_mapping_{DEST_LOCATION}.json"
         secret_client_cache_dict = {}
         cert_client_cache_dict = {}
         SUBSCRIPTION_ID = get_subscription_id(DEST_LOCATION, SUB_SERIES)
+        _assign_kv_policy()
         source_dest_url_mapping(file)
