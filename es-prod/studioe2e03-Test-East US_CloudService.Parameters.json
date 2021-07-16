@@ -1,0 +1,218 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentParameters.json",
+    "contentVersion": "1.0.0.0",
+    "paths": [
+        "servicePackageLink",
+        "serviceConfigurationLink"
+    ],
+    "parameters": {
+        "deploymentLabel": {
+            "value": "studioe2e03-1.0.5211.1"
+        },
+        "deploymentUnit": {
+            "value": "studioe2e03"
+        },
+        "location": {
+            "value": "East US"
+        },
+        "serviceConfigurationLink": {
+            "value": "Configurations\\studioe2e03-Test-East US_CloudService.ServiceConfiguration.cscfg"
+        },
+        "servicePackageLink": {
+            "value": "Bin\\StudioCloudProject\\StudioCloudProjProd.cspkg"
+        },
+        "StudioApiSSLCertificateKvSecretThumbprint": {
+            "value": "StudioApiSSLCertificateKvSecret.Thumbprint"
+        },
+        "StudioApiSSLCertificateKvSecretContent": {
+            "value": "StudioApiSSLCertificateKvSecret.Content"
+        },
+        "AadAuthCertificateKvSecretThumbprint": {
+            "value": "AadAuthCertificateKvSecret.Thumbprint"
+        },
+        "AadAuthCertificateKvSecretContent": {
+            "value": "AadAuthCertificateKvSecret.Content"
+        },
+        "AcsTokenCertificateKvSecretThumbprint": {
+            "value": "AcsTokenCertificateKvSecret.Thumbprint"
+        },
+        "AcsTokenCertificateKvSecretContent": {
+            "value": "AcsTokenCertificateKvSecret.Content"
+        },
+        "AcsTokenCertificateSecondaryKvSecretThumbprint": {
+            "value": "AcsTokenCertificateSecondaryKvSecret.Thumbprint"
+        },
+        "AcsTokenCertificateSecondaryKvSecretContent": {
+            "value": "AcsTokenCertificateSecondaryKvSecret.Content"
+        },
+        "DatalabAnalyticsComCertificateKvSecretThumbprint": {
+            "value": "DatalabAnalyticsComCertificateKvSecret.Thumbprint"
+        },
+        "DatalabAnalyticsComCertificateKvSecretContent": {
+            "value": "DatalabAnalyticsComCertificateKvSecret.Content"
+        },
+        "DecryptCertificateKvSecretThumbprint": {
+            "value": "DecryptCertificateKvSecret.Thumbprint"
+        },
+        "DecryptCertificateKvSecretContent": {
+            "value": "DecryptCertificateKvSecret.Content"
+        },
+        "ESPIIPrimaryCertificateKvSecretThumbprint": {
+            "value": "ESPIIPrimaryCertificateKvSecret.Thumbprint"
+        },
+        "ESPIIPrimaryCertificateKvSecretContent": {
+            "value": "ESPIIPrimaryCertificateKvSecret.Content"
+        },
+        "ESPIISecondaryCertificateKvSecretThumbprint": {
+            "value": "ESPIISecondaryCertificateKvSecret.Thumbprint"
+        },
+        "ESPIISecondaryCertificateKvSecretContent": {
+            "value": "ESPIISecondaryCertificateKvSecret.Content"
+        },
+        "GetAllUsersClientCertificateKvSecretThumbprint": {
+            "value": "GetAllUsersClientCertificateKvSecret.Thumbprint"
+        },
+        "GetAllUsersClientCertificateKvSecretContent": {
+            "value": "GetAllUsersClientCertificateKvSecret.Content"
+        },
+        "MdmCertificateKvSecretThumbprint": {
+            "value": "MdmCertificateKvSecret.Thumbprint"
+        },
+        "MdmCertificateKvSecretContent": {
+            "value": "MdmCertificateKvSecret.Content"
+        },
+        "PassauDeployCertificateKvSecretThumbprint": {
+            "value": "PassauDeployCertificateKvSecret.Thumbprint"
+        },
+        "PassauDeployCertificateKvSecretContent": {
+            "value": "PassauDeployCertificateKvSecret.Content"
+        },
+        "ResourceProviderClientCertificateKvSecretThumbprint": {
+            "value": "ResourceProviderClientCertificateKvSecret.Thumbprint"
+        },
+        "ResourceProviderClientCertificateKvSecretContent": {
+            "value": "ResourceProviderClientCertificateKvSecret.Content"
+        },
+        "ServiceConfigCertificateKvSecretThumbprint": {
+            "value": "ServiceConfigCertificateKvSecret.Thumbprint"
+        },
+        "ServiceConfigCertificateKvSecretContent": {
+            "value": "ServiceConfigCertificateKvSecret.Content"
+        },
+        "StudioApiDataMovementClientCertificateKvSecretThumbprint": {
+            "value": "StudioApiDataMovementClientCertificateKvSecret.Thumbprint"
+        },
+        "StudioApiDataMovementClientCertificateKvSecretContent": {
+            "value": "StudioApiDataMovementClientCertificateKvSecret.Content"
+        },
+        "StudioClientCertificateAlternateKvSecretThumbprint": {
+            "value": "StudioClientCertificateAlternateKvSecret.Thumbprint"
+        },
+        "StudioClientCertificateAlternateKvSecretContent": {
+            "value": "StudioClientCertificateAlternateKvSecret.Content"
+        },
+        "StudioClientCertificateKvSecretThumbprint": {
+            "value": "StudioClientCertificateKvSecret.Thumbprint"
+        },
+        "StudioClientCertificateKvSecretContent": {
+            "value": "StudioClientCertificateKvSecret.Content"
+        },
+        "GCSCertificateThumbprint": {
+            "value": "GCSCertificate.Thumbprint"
+        },
+        "GCSCertificateContent": {
+            "value": "GCSCertificate.Content"
+        },
+    },
+    "secrets": [
+        {
+            "TargetReference": "serviceConfigurationLink",
+            "Replacements": {
+                "ServicePrimaryTableStorageAccount1KeyKvSecret_KeyVaultSecret": "https://studio-test-scus-es.vault.azure.net:443/secrets/studioe2e03-StorageAccount-Key1/360ced91926e49f09137ed0c691fbb5d",
+                "ServicePrimaryTableStorageAccount1NameKvSecret_KeyVaultSecret": "https://studio-test-scus-es.vault.azure.net:443/secrets/studioe2e03-StorageAccount-Name/1bbac006d2424ead9b308601f0a429cf",
+                "ArmHydrationStorageAccountKeyKvSecret_KeyVaultSecret": "https://studio-test-scus-es.vault.azure.net:443/secrets/dogfoodarmhydration-StorageAccount-Key1/eec4c6e3fedf407a99d234ede76071ea",
+                "ArmHydrationStorageAccountNameKvSecret_KeyVaultSecret": "https://studio-test-scus-es.vault.azure.net:443/secrets/dogfoodarmhydration-StorageAccount-Name/02ebb501695f4802a15b4c6b6a43c32f",
+                "AzSecPackAuditBootstrapKeyKvSecret_KeyVaultSecret": "https://studio-test-scus.vault.azure.net:443/secrets/AzSecPackAuditAutoKeyTestUSE1",
+                "AzSecPackSecurityBootstrapKeyKvSecret_KeyVaultSecret": "https://studio-test-scus.vault.azure.net:443/secrets/AzSecPackSecurityAutoKeyTestUSE1",
+                "MarketoLeadSharedKeyKvSecret_KeyVaultSecret": "https://studio-test-scus-es.vault.azure.net:443/secrets/MarketoLeadSharedKey",
+                "MdsStorageAccountKeyKvSecret_KeyVaultSecret": "https://studio-test-scus.vault.azure.net:443/secrets/MdsTestStudioStorageAccount-Key2/8f579c88e2b74aa881ed9a7037b2b2b5",
+                "MdsStorageAccountNameKvSecret_KeyVaultSecret": "https://studio-test-scus.vault.azure.net:443/secrets/MdsTestStudioStorageAccount-Name/7fcce60331744617b3bcd46991f4c9dd",
+                "NotebookManagementAccessKeyKvSecret_KeyVaultSecret": "https://studio-test-scus-es.vault.azure.net:443/secrets/NotebookManagementAccessKey/98fc03357ee141a18580551e3284c04e",
+                "SchedulerAuthHeaderOldKvSecret_KeyVaultSecret": "https://studio-test-scus-es.vault.azure.net:443/secrets/SchedulerAuthHeader/f2c4c2d4ce8b4bc9b41aa597293e3b90",
+                "SchedulerAuthHeaderKvSecret_KeyVaultSecret": "https://studio-test-scus-es.vault.azure.net:443/secrets/SchedulerAuthHeader/a4287a7c46854ab98231e0c05d2f7d14",
+                "AzureEmailOrchestratorAADAppSecretKvSecret_KeyVaultSecret": "https://studio-test-scus-es.vault.azure.net:443/secrets/AmlDeploy-AADAppPassword",
+                "AzureEmailOrchestratorAADAppIdKvSecret_KeyVaultSecret": "https://studio-test-scus-es.vault.azure.net:443/secrets/Amldeploy-AADAppId",
+            },
+            "Certificates": [
+                {
+	                "Name": "StudioApiSSLCertificateKvSecret",
+	                "ContentReference" : "https://studio-test-scus-es.vault.azure.net:443/secrets/studio2e03-SSLcertificate"
+                },
+                {
+	                "Name": "AadAuthCertificateKvSecret",
+	                "ContentReference" : "https://studio-test.vault.azure.net:443/secrets/aadauthcert/77514d0693d64c988c263ce94b4861b3"
+                },
+                {
+	                "Name": "AcsTokenCertificateKvSecret",
+	                "ContentReference" : "https://studio-test-scus-es.vault.azure.net:443/secrets/acsTokenCert/b3c4bf5b85e24f82bc5b00ca2b39b96d"
+                },
+                {
+	                "Name": "AcsTokenCertificateSecondaryKvSecret",
+	                "ContentReference" : "https://studio-test-scus-es.vault.azure.net:443/secrets/acsTokenCert/41b4aac09129427eb6b3141f2f84c7e8"
+                },
+                {
+	                "Name": "DatalabAnalyticsComCertificateKvSecret",
+	                "ContentReference" : "https://studio-test-scus-es.vault.azure.net:443/secrets/DataLabAnalyticsComCertificate"
+                },
+                {
+	                "Name": "DecryptCertificateKvSecret",
+	                "ContentReference" : "https://studio-test.vault.azure.net:443/secrets/serviceconfigcert/9b6efe1ea3bb4b4cb7da83ac3165a9da"
+                },
+                {
+	                "Name": "ESPIIPrimaryCertificateKvSecret",
+	                "ContentReference" : "https://studio-test-scus-es.vault.azure.net:443/secrets/ESPIIPrimaryCert/b19ac145330e4b7fac7c2576385e4c82"
+                },
+                {
+	                "Name": "ESPIISecondaryCertificateKvSecret",
+	                "ContentReference" : "https://studio-test-scus-es.vault.azure.net:443/secrets/ESPIIPrimaryCert/6179f1d4243c45aaab22d805d7e1d4b7"
+                },
+                {
+	                "Name": "GetAllUsersClientCertificateKvSecret",
+	                "ContentReference" : "https://studio-test-scus-es.vault.azure.net:443/secrets/getallusersclientcert/8bc0eb3ed56c40f0bce7d8fe64177e06"
+                },
+                {
+	                "Name": "MdmCertificateKvSecret",
+	                "ContentReference" : "https://studio-test.vault.azure.net:443/secrets/mdmcert/720375a87aba45dd80ede1ee9742ccfb"
+                },
+                {
+	                "Name": "PassauDeployCertificateKvSecret",
+	                "ContentReference" : "https://studio-test.vault.azure.net:443/secrets/passaudeploycert/73ab4865f32b484b9ffafe2ca84d5fc5"
+                },
+                {
+	                "Name": "ResourceProviderClientCertificateKvSecret",
+	                "ContentReference" : "https://studio-test-scus-es.vault.azure.net:443/secrets/ResourceProviderIdentityClientCertificate/c3d0b478fddd4a69887928126e0667ae"
+                },
+                {
+	                "Name": "ServiceConfigCertificateKvSecret",
+	                "ContentReference" : "https://studio-test.vault.azure.net:443/secrets/serviceconfig-new/e442691e30e94de680d07510b1f4e540"
+                },
+                {
+	                "Name": "StudioApiDataMovementClientCertificateKvSecret",
+	                "ContentReference" : "https://studio-test-scus-es.vault.azure.net:443/secrets/StudioDataMovementApi"
+                },
+                {
+	                "Name": "StudioClientCertificateAlternateKvSecret",
+	                "ContentReference" : "https://studio-test.vault.azure.net:443/secrets/identityclientCertificate"
+                },
+                {
+	                "Name": "StudioClientCertificateKvSecret",
+	                "ContentReference" : "https://studio-test-scus-es.vault.azure.net:443/secrets/StudioIdentityClientCertificate/448d727cbe7b4710a0f616bbd9feb89d"
+                },
+                {
+	                "Name": "GCSCertificate",
+	                "ContentReference" : "https://studio-test.vault.azure.net:443/secrets/gcscert"
+                },
+            ]
+        }
+    ]
+}

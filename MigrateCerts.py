@@ -16,8 +16,9 @@ from azure.common.credentials import get_azure_cli_credentials
 from azure.core.exceptions import ResourceNotFoundError
 
 # The following parameters need to be updated by region/service.
-SUB_SERIES = "MAML-2"
-FOLDER_NAME = "es-prod"
+SUB_SERIES = "MAML-4-comm"
+FOLDER_NAME = "catalog-ca"
+FILE_NAME_FORMAT = "{}/{}-*-1*Parameters.json".format(FOLDER_NAME, FOLDER_NAME)
 global DEST_LOCATION
 #############################################################################################
 
@@ -280,7 +281,7 @@ def _get_certificate_version_in_dest_key_vault(
 
 
 def _get_files():
-    file_name_format = "{}/{}-*-001-Production-*CloudService.Parameters.json".format(FOLDER_NAME, FOLDER_NAME)
+    file_name_format = FILE_NAME_FORMAT
     files = glob.glob(file_name_format)
     print("All parameter files:", files)
     return files
@@ -344,7 +345,8 @@ def source_dest_url_mapping(input_parameter_json):
 if __name__ == "__main__":
     files = _get_files()
     for file in files:
-        DEST_LOCATION = file.split("-")[-1][:-len("_CloudService.Parameters.json")].replace(" ", "").lower()
+        # DEST_LOCATION = file.split("-")[-1][:-len("_CloudService.Parameters.json")].replace(" ", "").lower()
+        DEST_LOCATION = file.split("-")[3]
         print("DEST_LOCATION:", DEST_LOCATION)
         DEST_VAULT_NAME = get_dest_vault_name(DEST_LOCATION, SUB_SERIES)
         DEST_VAULT_URL = f"https://{DEST_VAULT_NAME}.vault.azure.net"

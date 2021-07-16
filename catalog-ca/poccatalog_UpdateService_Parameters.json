@@ -1,0 +1,132 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentParameters.json",
+  "contentVersion": "1.0.0.0",
+  "paths": [
+    "servicePackageLink",
+    "serviceConfigurationLink"
+  ],
+  "parameters": {
+    "serviceDomainName": {
+      "value": "poccatalog"
+    },
+    "deploymentLabel": {
+      "value": "1.0.4972.1"
+    },
+    "servicePackageLink": {
+      "value": "bin\\CatalogCloudProject.cspkg"
+    },
+    "serviceConfigurationLink": {
+      "value": "Configurations\\poccatalog_ServiceConfiguration.cscfg"
+    },
+    "cloudServiceLocation": {
+      "value": "West US"
+    },
+    "decryptionCertThumbprint": {
+      "value": "decryptionCert.Thumbprint"
+    },
+    "decryptionCertContent": {
+      "value": "decryptionCert.Content"
+    },
+    "sslCertThumbprint": {
+      "value": "sslCert.Thumbprint"
+    },
+    "sslCertContent": {
+      "value": "sslCert.Content"
+    },
+    "indexServiceAuthCertThumbprint": {
+      "value": "indexServiceAuthCert.Thumbprint"
+    },
+    "indexServiceAuthCertContent": {
+      "value": "indexServiceAuthCert.Content"
+    },
+    "gcsCertThumbprint": {
+      "value": "gcsCert.Thumbprint"
+    },
+    "gcsCertContent": {
+      "value": "gcsCert.Content"
+    },
+    "packingServiceAuthCertThumbprint": {
+      "value": "packingServiceAuthCert.Thumbprint"
+    },
+    "packingServiceAuthCertContent": {
+      "value": "packingServiceAuthCert.Content"
+    }
+  },
+  "secrets": [
+    {
+      "TargetReference": "serviceConfigurationLink",
+      "Replacements": {
+        "__MdsMonikerPrefix__": {
+          "SecretId": "https://community-catalog-test.vault.azure.net/secrets/MdsMonikerPrefix"
+        },
+        "__CatalogStorageAccount__": {
+          "SecretId": "https://community-catalog-test.vault.azure.net/secrets/CatalogStorageAccount"
+        },
+        "__CatalogStorageAccountKey__": {
+          "SecretId": "https://community-catalog-test.vault.azure.net/secrets/CatalogStorageAccountKey"
+        },
+        "__CatalogStorageCDNAccount__": {
+          "SecretId": "https://community-catalog-test.vault.azure.net/secrets/CatalogStorageCDNAccount"
+        },
+        "__CatalogStorageCDNAccountKey__": {
+          "SecretId": "https://community-catalog-test.vault.azure.net/secrets/CatalogStorageCDNAccountKey"
+        },
+        "__MdsStorageAccount__": {
+          "SecretId": "https://community-catalog-test.vault.azure.net/secrets/MdsStorageAccount-WestUs"
+        },
+        "__MdsStorageAccountKey__": {
+          "SecretId": "https://community-catalog-test.vault.azure.net/secrets/MdsStorageAccountKey-WestUs"
+        },
+        "__AzSecPackAuditAccount__": {
+          "SecretId": "https://community-catalog-test.vault.azure.net/secrets/AzSecPackAuditAccount-WestUs"
+        },
+        "__AzSecPackAuditAccountKey__": {
+          "SecretId": "https://community-catalog-test.vault.azure.net/secrets/AzSecPackAuditAccountKey-WestUs"
+        },
+        "__AzSecPackSecurityAccount__": {
+          "SecretId": "https://community-catalog-test.vault.azure.net/secrets/AzSecPackSecurityAccount-WestUs"
+        },
+        "__AzSecPackSecurityAccountKey__": {
+          "SecretId": "https://community-catalog-test.vault.azure.net/secrets/AzSecPackSecurityAccountKey-WestUs"
+        },
+        "__DocumentDbAuthKey__": {
+          "SecretId": "https://community-catalog-test.vault.azure.net/secrets/DocumentDbPocAuthKey"
+        },
+        "__PreviewServiceApiKey__": {
+          "SecretId": "https://community-catalog-test.vault.azure.net/secrets/PreviewServiceApiKey"
+        },
+        "__DocumentDbSlaveAuthKey__": {
+          "SecretId": "https://community-catalog-test.vault.azure.net/secrets/DocumentDbPocSlaveAuthKey-WestUs"
+        },
+        "__GitHubAccessToken__": {
+          "SecretId": "https://community-catalog-test.vault.azure.net/secrets/GitHubAccessToken"
+        },
+        "__DocumentDbMasterSourceAuthKey__": {
+          "SecretId": "https://community-catalog-test.vault.azure.net/secrets/DocumentDbSlaveAuthKey-EastUs"
+        }
+      },
+      "Certificates": [
+        {
+          "Name": "decryptionCert",
+          "ContentReference": "https://community-catalog-test.vault.azure.net/secrets/DecryptCert"
+        },
+        {
+          "Name": "sslCert",
+          "ContentReference": "https://community-catalog-test.vault.azure.net/secrets/CatalogPocSSLCertificate"
+        },
+        {
+          "Name": "indexServiceAuthCert",
+          "ContentReference": "https://community-catalog-test.vault.azure.net/secrets/IndexServiceAuthCertificate"
+        },
+        {
+          "Name": "gcsCert",
+          "ContentReference": "https://community-catalog-test.vault.azure.net/secrets/cigallerycatalog-test/"
+        },
+        {
+          "Name": "packingServiceAuthCert",
+          "ContentReference": "https://community-catalog-test.vault.azure.net/secrets/PackingServiceAuthCertificate"
+        }
+      ]
+    }
+  ]
+}
