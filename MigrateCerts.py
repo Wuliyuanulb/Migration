@@ -29,7 +29,9 @@ DEST_RESOURCE_GROUP_NAME = "studio-migration"
 
 global DEST_LOCATION
 MAPPING_FOLDER = 'mapping_folder'
-os.mkdir('{FOLDER_NAME}\{MAPPING_FOLDER}')
+if not os.path.exists(rf'{FOLDER_NAME}\{MAPPING_FOLDER}'):
+    os.mkdir(rf'{FOLDER_NAME}\{MAPPING_FOLDER}')
+
 LOCATION_TO_SUB_IDs = {
     "centraluseuap": {
         "MAML-1": "1220ed94-c61b-4690-b5c6-acc242a69250",
@@ -370,7 +372,7 @@ def source_dest_url_mapping(input_parameter_json):
 
 if __name__ == "__main__":
     # files = _get_files()
-    files = ["catalog-ca/catalog-ca-westus-1_UpdateService_Parameters.json"]
+    files = ["catalog-ca/catalog-ca-northeurope-1_UpdateService_Parameters.json"]
     for file in files:
         # DEST_LOCATION = file.split("-")[-1][:-len("_CloudService.Parameters.json")].replace(" ", "").lower()
         DEST_LOCATION = _get_location_from_file_name(file)
