@@ -16,9 +16,10 @@ from azure.mgmt.resource import ResourceManagementClient
 from azure.common.credentials import get_azure_cli_credentials
 from azure.core.exceptions import ResourceNotFoundError
 
-# The following parameters need to be updated by region/service.
+# TODO: The following parameters need to be updated by region/service.
 SUB_SERIES = "MAML-4-comm"
 FOLDER_NAME = "catalog-ca"
+# change FILE_NAME_FORMAT according to parameter files under one service folder
 FILE_NAME_FORMAT = "{}/{}-*-1*Parameters.json".format(FOLDER_NAME, FOLDER_NAME)
 # Object id of your own microsoft account.
 OBJECT_ID = "8f919de4-02b0-48de-ba4c-a13be2e19c33"
@@ -74,6 +75,13 @@ SUB_SERIES_WHITE_LIST = ["MAML-1", "MAML-2", "MAML-4-comm", "MAML-13-UX"]
 TENANT_ID = "72f988bf-86f1-41af-91ab-2d7cd011db47"
 # Application used for ev2 deployment in release pipeline.
 DEPLOYMENT_APP_OBJECT_ID = "cbdda706-d154-4831-85c5-58f6a3765b3f"
+
+# TODO: change parse policy to automativally get location fro file name
+def _get_location_from_file_name(file):
+    # NOTE: need to change here
+    location = file.split("-")[3]
+    return location
+
 
 def get_subscription_id(location: str, sub_series: str) -> str:
     if sub_series not in SUB_SERIES_WHITE_LIST:
@@ -358,7 +366,7 @@ if __name__ == "__main__":
     files = _get_files()
     for file in files:
         # DEST_LOCATION = file.split("-")[-1][:-len("_CloudService.Parameters.json")].replace(" ", "").lower()
-        DEST_LOCATION = file.split("-")[3]
+        DEST_LOCATION = _get_location_from_file_name(file)
         print("DEST_LOCATION:", DEST_LOCATION)
         DEST_VAULT_NAME = get_dest_vault_name(DEST_LOCATION, SUB_SERIES)
         DEST_VAULT_URL = f"https://{DEST_VAULT_NAME}.vault.azure.net"
