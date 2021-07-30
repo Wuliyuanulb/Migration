@@ -1,0 +1,88 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentParameters.json",
+    "contentVersion": "1.0.0.0",
+    "paths": [
+        "servicePackageLink",
+        "serviceConfigurationLink"
+    ],
+  "parameters": {
+    "serviceDomainName": {
+      "value": "CommitmentPlanRP-asiasoutheast-001"
+    },
+    "deploymentLabel": {
+      "value": "1.1.4964.1"
+    },
+    "servicePackageLink": {
+      "value": "bin\\CommitmentPlanService.cspkg"
+    },
+    "serviceConfigurationLink": {
+      "value": "Configurations\\CommitmentPlanRP-asiasoutheast-001_ServiceConfiguration.cscfg"
+    },
+    "cloudServiceLocation": {
+      "value": "Southeast Asia"
+    },
+    "SMStarAzureMLNetCertContent": {
+      "value": "SMStarAzureMLNetCert.Content"
+    },
+    "SMStarAzureMLNetCertThumbprint": {
+      "value": "SMStarAzureMLNetCert.Thumbprint"
+    },
+    "CloudMLCommitmentBillingServiceAuthCertContent": {
+      "value": "CloudMLCommitmentBillingServiceAuthCert.Content"
+    },
+    "CloudMLCommitmentBillingServiceAuthCertThumbprint": {
+      "value": "CloudMLCommitmentBillingServiceAuthCert.Thumbprint"
+    },
+    "gcsCertThumbprint": {
+        "value": "gcsCert.Thumbprint"
+    },
+    "gcsCertContent": {
+        "value": "gcsCert.Content"
+    }
+  },
+    "secrets": [
+        {
+            "TargetReference": "serviceConfigurationLink",
+            "Replacements": {
+                "__AzSecPackAuditAccount__": {
+                    "SecretId": "https://CommitmentplansMamlProd.vault.azure.net/secrets/AzSecPackAuditAccount-SoutheastAsia"
+                },
+                "__AzSecPackAuditAccountKey__": {
+                    "SecretId": "https://CommitmentplansMamlProd.vault.azure.net/secrets/AzSecPackAuditAccountKey-SoutheastAsia"
+                },
+                "__AzSecPackSecurityAccount__": {
+                    "SecretId": "https://CommitmentplansMamlProd.vault.azure.net/secrets/AzSecPackSecurityAccount-SoutheastAsia"
+                },
+                "__AzSecPackSecurityAccountKey__": {
+                    "SecretId": "https://CommitmentplansMamlProd.vault.azure.net/secrets/AzSecPackSecurityAccountKey-SoutheastAsia"
+                },
+                "__MdsStorageAccount__": {
+                    "SecretId": "https://CommitmentplansMamlProd.vault.azure.net/secrets/MdsStorageAccount-SoutheastAsia"
+                },
+                "__MdsStorageAccountKey__": {
+                    "SecretId": "https://CommitmentplansMamlProd.vault.azure.net/secrets/MdsStorageAccountKey-SoutheastAsia"
+                },
+                "__DocumentDbAccount__": {
+                    "SecretId": "https://CommitmentplansMamlProd.vault.azure.net/secrets/DocumentDbAccount-SoutheastAsia"
+                },
+                "__DocumentDbAuthKey__": {
+                    "SecretId": "https://CommitmentplansMamlProd.vault.azure.net/secrets/DocumentDbAuthKey-SoutheastAsia"
+                }
+            },
+            "Certificates": [
+                {
+                    "Name": "SMStarAzureMLNetCert",
+                    "ContentReference": "https://CommitmentplansMamlProd.vault.azure.net/secrets/SMStarAzureMLNetCert-SoutheastAsia/"
+                },
+                {
+                    "Name": "CloudMLCommitmentBillingServiceAuthCert",
+                    "ContentReference": "https://CommitmentplansMamlProd.vault.azure.net/secrets/CloudMLCommitmentBillingServiceAuthCert-SoutheastAsia/"
+                },
+                {
+                    "Name": "gcsCert",
+                    "ContentReference": "https://CommitmentplansMamlProd.vault.azure.net/secrets/mamlplanrpgcs/"
+                }
+            ]
+        }
+    ]
+}

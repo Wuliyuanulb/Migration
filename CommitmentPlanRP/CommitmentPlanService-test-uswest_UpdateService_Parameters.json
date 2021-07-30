@@ -1,0 +1,88 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentParameters.json",
+    "contentVersion": "1.0.0.0",
+    "paths": [
+        "servicePackageLink",
+        "serviceConfigurationLink"
+    ],
+  "parameters": {
+    "serviceDomainName": {
+      "value": "CommitmentPlanService-test-uswest"
+    },
+    "deploymentLabel": {
+      "value": "1.1.4964.1"
+    },
+    "servicePackageLink": {
+      "value": "bin\\CommitmentPlanService.cspkg"
+    },
+    "serviceConfigurationLink": {
+      "value": "Configurations\\CommitmentPlanService-test-uswest_ServiceConfiguration.cscfg"
+    },
+    "cloudServiceLocation": {
+      "value": "West US"
+    },
+    "SMStarAzureMLNetCertContent": {
+      "value": "SMStarAzureMLNetCert.Content"
+    },
+    "SMStarAzureMLNetCertThumbprint": {
+      "value": "SMStarAzureMLNetCert.Thumbprint"
+    },
+    "CloudMLCommitmentBillingServiceAuthCertContent": {
+      "value": "CloudMLCommitmentBillingServiceAuthCert.Content"
+    },
+    "CloudMLCommitmentBillingServiceAuthCertThumbprint": {
+      "value": "CloudMLCommitmentBillingServiceAuthCert.Thumbprint"
+    },
+    "gcsCertThumbprint": {
+        "value": "gcsCert.Thumbprint"
+    },
+    "gcsCertContent": {
+        "value": "gcsCert.Content"
+    }
+  },
+    "secrets": [
+        {
+            "TargetReference": "serviceConfigurationLink",
+            "Replacements": {
+                "__AzSecPackAuditAccount__": {
+                    "SecretId": "https://CommitmentPlansMamlTest.vault.azure.net/secrets/AzSecPackAuditAccount-WestUs"
+                },
+                "__AzSecPackAuditAccountKey__": {
+                    "SecretId": "https://CommitmentPlansMamlTest.vault.azure.net/secrets/AzSecPackAuditAccountKey-WestUs"
+                },
+                "__AzSecPackSecurityAccount__": {
+                    "SecretId": "https://CommitmentPlansMamlTest.vault.azure.net/secrets/AzSecPackSecurityAccount-WestUs"
+                },
+                "__AzSecPackSecurityAccountKey__": {
+                    "SecretId": "https://CommitmentPlansMamlTest.vault.azure.net/secrets/AzSecPackSecurityAccountKey-WestUs"
+                },
+                "__MdsStorageAccount__": {
+                    "SecretId": "https://CommitmentPlansMamlTest.vault.azure.net/secrets/MdsStorageAccount-WestUs"
+                },
+                "__MdsStorageAccountKey__": {
+                    "SecretId": "https://CommitmentPlansMamlTest.vault.azure.net/secrets/MdsStorageAccountKey-WestUs"
+                },
+                "__DocumentDbAccount__": {
+                    "SecretId": "https://CommitmentPlansMamlTest.vault.azure.net/secrets/DocumentDbAccount-WestUs"
+                },
+                "__DocumentDbAuthKey__": {
+                    "SecretId": "https://CommitmentPlansMamlTest.vault.azure.net/secrets/DocumentDbAuthKey-WestUs"
+                }
+            },
+            "Certificates": [
+                {
+                    "Name": "SMStarAzureMLNetCert",
+                    "ContentReference": "https://CommitmentPlansMamlTest.vault.azure.net/secrets/stardotcommitmentplandotazuremlintdotnet/"
+                },
+                {
+                    "Name": "CloudMLCommitmentBillingServiceAuthCert",
+                    "ContentReference": "https://CommitmentPlansMamlTest.vault.azure.net/secrets/CloudMLCommitmentBillingServiceAuthCert/"
+                },
+                {
+                    "Name": "gcsCert",
+                    "ContentReference": "https://CommitmentPlansMamlTest.vault.azure.net/secrets/mamlplanrpgcs/"
+                }
+            ]
+        }
+    ]
+}
