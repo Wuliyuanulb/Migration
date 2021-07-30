@@ -324,8 +324,9 @@ def _assign_kv_policy():
         .format(DEST_VAULT_NAME, secret_permissions, certificate_permissions, SUBSCRIPTION_ID, OBJECT_ID)
     try:
         subprocess.check_call(command, shell=True)
+        print(f'Addded your access to Key Vault {DEST_VAULT_NAME}')
     except Exception as e:
-        raise Exception(e)
+        raise Exception(f"Adding access failed: {e}")
 
 
 def source_dest_url_mapping(input_parameter_json):
