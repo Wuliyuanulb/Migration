@@ -18,10 +18,10 @@ from azure.common.credentials import get_azure_cli_credentials
 from azure.core.exceptions import ResourceNotFoundError
 
 # TODO: The following parameters need to be updated by region/service.
-SUB_SERIES = "MAML-4-comm"
-FOLDER_NAME = "catalog-ca"
+SUB_SERIES = "MAML-2"
+FOLDER_NAME = "CommitmentPlanRP"
 # change FILE_NAME_FORMAT according to parameter files under one service folder
-FILE_NAME_FORMAT = "{}/{}-*-1*Parameters.json".format(FOLDER_NAME, FOLDER_NAME)
+FILE_NAME_FORMAT = "{}/{}-*-001_UpdateService_Parameters.json".format(FOLDER_NAME, FOLDER_NAME)
 # Object id of your own microsoft account.
 OBJECT_ID = "8f919de4-02b0-48de-ba4c-a13be2e19c33"
 DEST_RESOURCE_GROUP_NAME = "studio-migration"
@@ -61,16 +61,29 @@ LOCATION_TO_SUB_IDs = {
         "MAML-2": "3a70124c-988d-4a70-ae83-ddc4c203da75"
     }
 }
+LOCATION_TO_SUB_IDs['uscentraleuap'] = LOCATION_TO_SUB_IDs['centraluseuap']
+LOCATION_TO_SUB_IDs['uswestcentral'] = LOCATION_TO_SUB_IDs['westcentralus']
+LOCATION_TO_SUB_IDs['europewest'] = LOCATION_TO_SUB_IDs['westeurope']
+LOCATION_TO_SUB_IDs['ussouthcentral'] = LOCATION_TO_SUB_IDs['southcentralus']
+LOCATION_TO_SUB_IDs['asiasoutheast'] = LOCATION_TO_SUB_IDs['southeastasia']
+LOCATION_TO_SUB_IDs['useast2'] = LOCATION_TO_SUB_IDs['eastus2']
+
 MAML_Production_4_Community_ID = "6c868b6a-900a-4b5d-8c03-2d5506291b33"
 MAML_Production_13_Web_Service_Management_UX_ID = "4d3bdb9c-a8d4-4a75-9ce4-cd4244c00d64"
 LOCATION_SHORT_NAME = {
     "centraluseuap": "usce",
+    "uscentraleuap": "usce",
     "westcentralus": "wcus",
+    "uswestcentral": "wcus",
     "westeurope": "weu",
+    "europewest": "weu",
     "southcentralus": "scus",
+    "ussouthcentral": "scus",
     "southeastasia": "sea",
+    "asiasoutheast": "sea",
     "japaneast": "jae",
     "eastus2": "eus2",
+    "useast2": "eus2",
     "eastus": "eus",
     "eastasia": "ea",
     "northeurope": "neu",
@@ -81,10 +94,10 @@ TENANT_ID = "72f988bf-86f1-41af-91ab-2d7cd011db47"
 # Application used for ev2 deployment in release pipeline.
 DEPLOYMENT_APP_OBJECT_ID = "cbdda706-d154-4831-85c5-58f6a3765b3f"
 
-# TODO: change parse policy to automativally get location fro file name
+# TODO: change parse policy to automatically get location fro file name
 def _get_location_from_file_name(file):
     # NOTE: need to change here
-    location = file.split("-")[3]
+    location = file.split("-")[1]
     return location
 
 
@@ -371,10 +384,8 @@ def source_dest_url_mapping(input_parameter_json):
 
 
 if __name__ == "__main__":
-    # files = _get_files()
-    files = ["catalog-ca/catalog-ca-northeurope-1_UpdateService_Parameters.json"]
+    files = _get_files()
     for file in files:
-        # DEST_LOCATION = file.split("-")[-1][:-len("_CloudService.Parameters.json")].replace(" ", "").lower()
         DEST_LOCATION = _get_location_from_file_name(file)
         print("DEST_LOCATION:", DEST_LOCATION)
         DEST_VAULT_NAME = get_dest_vault_name(DEST_LOCATION, SUB_SERIES)
