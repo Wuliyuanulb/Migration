@@ -18,10 +18,10 @@ from azure.common.credentials import get_azure_cli_credentials
 from azure.core.exceptions import ResourceNotFoundError
 
 # TODO: The following parameters need to be updated by region/service.
+FOLDER_NAME = "StorageService"
 SUB_SERIES = "MAML-2"
-FOLDER_NAME = "CommitmentPlanRP"
 # change FILE_NAME_FORMAT according to parameter files under one service folder
-FILE_NAME_FORMAT = "{}/{}-*-001_UpdateService_Parameters.json".format(FOLDER_NAME, FOLDER_NAME)
+FILE_NAME_FORMAT = "{}/*prod-*-001-*.Parameters.json".format(FOLDER_NAME, FOLDER_NAME)
 # Object id of your own microsoft account.
 OBJECT_ID = "8f919de4-02b0-48de-ba4c-a13be2e19c33"
 DEST_RESOURCE_GROUP_NAME = "studio-migration"
@@ -66,7 +66,6 @@ LOCATION_TO_SUB_IDs['uswestcentral'] = LOCATION_TO_SUB_IDs['westcentralus']
 LOCATION_TO_SUB_IDs['europewest'] = LOCATION_TO_SUB_IDs['westeurope']
 LOCATION_TO_SUB_IDs['ussouthcentral'] = LOCATION_TO_SUB_IDs['southcentralus']
 LOCATION_TO_SUB_IDs['asiasoutheast'] = LOCATION_TO_SUB_IDs['southeastasia']
-LOCATION_TO_SUB_IDs['useast2'] = LOCATION_TO_SUB_IDs['eastus2']
 
 MAML_Production_4_Community_ID = "6c868b6a-900a-4b5d-8c03-2d5506291b33"
 MAML_Production_13_Web_Service_Management_UX_ID = "4d3bdb9c-a8d4-4a75-9ce4-cd4244c00d64"
@@ -86,6 +85,7 @@ LOCATION_SHORT_NAME = {
     "useast2": "eus2",
     "eastus": "eus",
     "eastasia": "ea",
+    "asiaeast": "ea",
     "northeurope": "neu",
     "westus": "wus"
 }
@@ -97,7 +97,7 @@ DEPLOYMENT_APP_OBJECT_ID = "cbdda706-d154-4831-85c5-58f6a3765b3f"
 # TODO: change parse policy to automatically get location fro file name
 def _get_location_from_file_name(file):
     # NOTE: need to change here
-    location = file.split("-")[1]
+    location = file.split("_")[0].split('-')[-1].replace(' ', '').lower()
     return location
 
 

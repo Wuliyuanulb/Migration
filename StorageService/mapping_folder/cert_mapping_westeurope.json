@@ -1,0 +1,37 @@
+[
+    {
+        "name": "StorageClientCertificate",
+        "sourceUrl": "https://studio-prod-weu-storage.vault.azure.net:443/secrets/storageclientcertificate",
+        "destUrl": "https://studio-weu-MAML-2.vault.azure.net:443/secrets/studio-prod-weu-storage--storageclientcertificate/c591f04c738147349327fdb3b5904c3d"
+    },
+    {
+        "name": "StorageServiceSSL",
+        "sourceUrl": "https://studio-prod-weu-storage.vault.azure.net:443/secrets/storageservicessl",
+        "destUrl": "https://studio-weu-MAML-2.vault.azure.net:443/secrets/studio-prod-weu-storage--storageservicessl/87d50625ddf14f7a89e220c0b84da41a"
+    },
+    {
+        "name": "PIIPrimaryCert",
+        "sourceUrl": "https://studio-prod-weu-storage.vault.azure.net:443/secrets/StoragePIIPrimaryCert/7a5602bb45c04062bc035665864241a8",
+        "destUrl": "https://studio-weu-MAML-2.vault.azure.net:443/secrets/studio-prod-weu-storage--StoragePIIPrimaryCert/6ce01912dfbd40a3b312eec79c77bab1"
+    },
+    {
+        "name": "PIISecondaryCert",
+        "sourceUrl": "https://studio-prod-weu-storage.vault.azure.net:443/secrets/StoragePIIPrimaryCert/d287571d514446488c5b32933c40c6a2",
+        "destUrl": "https://studio-weu-MAML-2.vault.azure.net:443/secrets/studio-prod-weu-storage--StoragePIIPrimaryCert/53d7a5a5236a4529811c52d52421b751"
+    },
+    {
+        "name": "MdmCertificate",
+        "sourceUrl": "https://studio-prod.vault.azure.net:443/secrets/mdmcert",
+        "destUrl": "https://studio-weu-MAML-2.vault.azure.net:443/secrets/studio-prod--mdmcert/4f8cfd1723e64152a8be526b3d2b6730"
+    },
+    {
+        "name": "ServiceConfig",
+        "sourceUrl": "https://studio-prod.vault.azure.net:443/secrets/serviceconfigcert-ar",
+        "destUrl": "https://studio-weu-MAML-2.vault.azure.net:443/secrets/studio-prod--serviceconfigcert-ar/6d58f186fa39428fa7be92a8b97c8076"
+    },
+    {
+        "name": "GCSCertificate",
+        "sourceUrl": "https://studio-prod.vault.azure.net:443/secrets/gcscert",
+        "destUrl": "https://studio-weu-MAML-2.vault.azure.net:443/secrets/studio-prod--gcscert/465926e859384fa5b1623e5280e59cac"
+    }
+]
