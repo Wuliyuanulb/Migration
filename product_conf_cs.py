@@ -1,7 +1,7 @@
 import glob
 import json
 
-FOLDER_NAME = "catalog-ca"
+FOLDER_NAME = "CommitmentPlanRP"
 
 
 def format_to_cs(file):
@@ -14,8 +14,8 @@ def format_to_cs(file):
         kv = kv_info.split('.')[0][len('https://'):]
         f.write('        public override string KeyVaultName => "{0}";\n\n'.format(kv))
         for map in mapping:
-            cs_format = '        public override string CommunityCatalog{} => "{}";\n\n'.format(
-                map.get('name').capitalize(),
+            cs_format = '        public override string {} => "CommitmentplansMamlProd--{}";\n\n'.format(
+                map.get('name')[0].upper() + map.get('name')[1:],
                 map.get('destUrl').split('--')[-1])
             f.write(cs_format)
 

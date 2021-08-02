@@ -1,0 +1,8 @@
+        public override string KeyVaultName => "studio-sea-MAML-2";
+
+        public override string SMStarAzureMLNetCert => "CommitmentplansMamlProd--SMStarAzureMLNetCert-SoutheastAsia/e9f41587fc21409da05d115ee46194fc";
+
+        public override string CloudMLCommitmentBillingServiceAuthCert => "CommitmentplansMamlProd--CloudMLCommitmentBillingServiceAuthCert-SoutheastAsia/6a67219c05574b37a3b4f2c193c61742";
+
+        public override string GcsCert => "CommitmentplansMamlProd--mamlplanrpgcs/67789532c19f4c409fff7ffcd7c3b83a";
+

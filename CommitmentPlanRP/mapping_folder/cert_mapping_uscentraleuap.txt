@@ -1,0 +1,8 @@
+        public override string KeyVaultName => "studio-usce-MAML-2";
+
+        public override string SMStarAzureMLNetCert => "CommitmentplansMamlProd--SMStarAzureMLNetCert-CentralUsEuap/f42f434a4bc84cc8bbfe113426971c25";
+
+        public override string CloudMLCommitmentBillingServiceAuthCert => "CommitmentplansMamlProd--CloudMLCommitmentBillingServiceAuthCert-CentralUsEuap/cc3afe9555974041abbcfb47fdba5ceb";
+
+        public override string GcsCert => "CommitmentplansMamlProd--mamlplanrpgcs/569e9bb538634b55922faaf6e94faab5";
+

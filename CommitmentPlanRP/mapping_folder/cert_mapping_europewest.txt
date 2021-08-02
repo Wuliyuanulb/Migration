@@ -1,0 +1,8 @@
+        public override string KeyVaultName => "studio-weu-MAML-2";
+
+        public override string SMStarAzureMLNetCert => "CommitmentplansMamlProd--SMStarAzureMLNetCert-WestEurope/8a3ea2ab37054bed9833b4db669180b0";
+
+        public override string CloudMLCommitmentBillingServiceAuthCert => "CommitmentplansMamlProd--CloudMLCommitmentBillingServiceAuthCert-WestEurope/6a3c6325a39a48018ba3d972871a19c2";
+
+        public override string GcsCert => "CommitmentplansMamlProd--mamlplanrpgcs/1150a91b96b5460b82a0df5e26b772e8";
+
