@@ -12,11 +12,20 @@ def format_to_cs(file):
     with open(cs_file_name, 'w') as f:
         kv_info = mapping[0].get('destUrl')
         kv = kv_info.split('.')[0][len('https://'):]
-        f.write('       public override string KeyVaultName => "{0}";\n\n'.format(kv))
+        f.write('public override string KeyVaultName => "{0}";\n\n'.format(kv))
         for map in mapping:
-            cs_format = '        public override string {} => "CommitmentplansMamlProd--{}";\n\n'.format(
-                map.get('name')[0].upper() + map.get('name')[1:],
-                map.get('destUrl').split('--')[-1])
+            name = map.get('name')
+            destUrl = map.get('destUrl').split('/')
+            value = destUrl[-2] + '/' + destUrl[-1]
+            cs_format = \
+                f'        public override Certificate {name}\n' \
+                '         {\n' \
+                '            get\n' \
+                '            {\n' \
+                f'               return new KeyVaultCertificate("{name}") {{ SecretName = "{value}", Owner = StudioProdCommonKeyVaultOwner }};\n' \
+                '            }\n' \
+                '         }\n\n'
+
             f.write(cs_format)
 
 
