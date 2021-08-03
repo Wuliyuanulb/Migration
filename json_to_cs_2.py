@@ -8,7 +8,7 @@ def format_to_cs(file):
     with open(file, 'r') as f:
         mapping = json.load(f)
 
-    cs_file_name = file[:-5] + '.txt'
+    cs_file_name = file[:-5] + '.cs'
     with open(cs_file_name, 'w') as f:
         kv_info = mapping[0].get('destUrl')
         kv = kv_info.split('.')[0][len('https://'):]
@@ -19,12 +19,12 @@ def format_to_cs(file):
             value = destUrl[-2] + '/' + destUrl[-1]
             cs_format = \
                 f'        public override Certificate {name}\n' \
-                '         {\n' \
+                '        {\n' \
                 '            get\n' \
                 '            {\n' \
                 f'               return new KeyVaultCertificate("{name}") {{ SecretName = "{value}", Owner = StudioProdCommonKeyVaultOwner }};\n' \
                 '            }\n' \
-                '         }\n\n'
+                '        }\n\n'
 
             f.write(cs_format)
 
