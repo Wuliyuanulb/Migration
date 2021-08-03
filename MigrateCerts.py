@@ -66,6 +66,7 @@ LOCATION_TO_SUB_IDs['uswestcentral'] = LOCATION_TO_SUB_IDs['westcentralus']
 LOCATION_TO_SUB_IDs['europewest'] = LOCATION_TO_SUB_IDs['westeurope']
 LOCATION_TO_SUB_IDs['ussouthcentral'] = LOCATION_TO_SUB_IDs['southcentralus']
 LOCATION_TO_SUB_IDs['asiasoutheast'] = LOCATION_TO_SUB_IDs['southeastasia']
+LOCATION_TO_SUB_IDs['useast2'] = LOCATION_TO_SUB_IDs['eastus2']
 
 MAML_Production_4_Community_ID = "6c868b6a-900a-4b5d-8c03-2d5506291b33"
 MAML_Production_13_Web_Service_Management_UX_ID = "4d3bdb9c-a8d4-4a75-9ce4-cd4244c00d64"
