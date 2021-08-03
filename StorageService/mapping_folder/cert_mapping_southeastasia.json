@@ -2,36 +2,36 @@
     {
         "name": "StorageClientCertificate",
         "sourceUrl": "https://studio-prod-sea-storage.vault.azure.net:443/secrets/storageclientcertificate",
-        "destUrl": "https://studio-sea-MAML-2.vault.azure.net:443/secrets/studio-prod-sea-storage--storageclientcertificate/f779f0334d9848f9b0e8f052912a2c7c"
+        "destUrl": "https://studio-sea-MAML-1.vault.azure.net:443/secrets/studio-prod-sea-storage--storageclientcertificate/cb880b59149447b0b748247e02c63331"
     },
     {
         "name": "StorageServiceSSL",
         "sourceUrl": "https://studio-prod-sea-storage.vault.azure.net:443/secrets/storageservicessl",
-        "destUrl": "https://studio-sea-MAML-2.vault.azure.net:443/secrets/studio-prod-sea-storage--storageservicessl/fe731c831c7e461895922f5f043cc683"
+        "destUrl": "https://studio-sea-MAML-1.vault.azure.net:443/secrets/studio-prod-sea-storage--storageservicessl/bc8b1e2dbdb249f59017a3924650e4ab"
     },
     {
         "name": "PIIPrimaryCert",
         "sourceUrl": "https://studio-prod-sea-storage.vault.azure.net:443/secrets/StoragePIIPrimaryCert/cd226e9fd1474811b667145b25172af0",
-        "destUrl": "https://studio-sea-MAML-2.vault.azure.net:443/secrets/studio-prod-sea-storage--StoragePIIPrimaryCert/c8b216680ef345b89b506c5ee5b1213d"
+        "destUrl": "https://studio-sea-MAML-1.vault.azure.net:443/secrets/studio-prod-sea-storage--StoragePIIPrimaryCert/f46af948175b4070993572f62c900ce1"
     },
     {
         "name": "PIISecondaryCert",
         "sourceUrl": "https://studio-prod-sea-storage.vault.azure.net:443/secrets/StoragePIIPrimaryCert/39163a2234e14d85ad275da27542e37d",
-        "destUrl": "https://studio-sea-MAML-2.vault.azure.net:443/secrets/studio-prod-sea-storage--StoragePIIPrimaryCert/53614fb0ac13453aaefbe54deecb5d06"
+        "destUrl": "https://studio-sea-MAML-1.vault.azure.net:443/secrets/studio-prod-sea-storage--StoragePIIPrimaryCert/af4142b4bfb34f89b5db6c02efbf2d99"
     },
     {
         "name": "MdmCertificate",
         "sourceUrl": "https://studio-prod.vault.azure.net:443/secrets/mdmcert",
-        "destUrl": "https://studio-sea-MAML-2.vault.azure.net:443/secrets/studio-prod--mdmcert/6a3d7be84b2847a187c10edad1be87b0"
+        "destUrl": "https://studio-sea-MAML-1.vault.azure.net:443/secrets/studio-prod--mdmcert/e442e306d324472182227d084674ee45"
     },
     {
         "name": "ServiceConfig",
         "sourceUrl": "https://studio-prod.vault.azure.net:443/secrets/serviceconfigcert-ar",
-        "destUrl": "https://studio-sea-MAML-2.vault.azure.net:443/secrets/studio-prod--serviceconfigcert-ar/8906764f31b04e6ab2c7a2dfa814d722"
+        "destUrl": "https://studio-sea-MAML-1.vault.azure.net:443/secrets/studio-prod--serviceconfigcert-ar/7978c0144dbc4781af1057e9db494534"
     },
     {
         "name": "GCSCertificate",
         "sourceUrl": "https://studio-prod.vault.azure.net:443/secrets/gcscert",
-        "destUrl": "https://studio-sea-MAML-2.vault.azure.net:443/secrets/studio-prod--gcscert/8f9fe7bf1d4643e3a27b8ce0609c54df"
+        "destUrl": "https://studio-sea-MAML-1.vault.azure.net:443/secrets/studio-prod--gcscert/aa543c445c0d46d99e6619edd2384708"
     }
 ]
