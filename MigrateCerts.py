@@ -19,7 +19,7 @@ from azure.core.exceptions import ResourceNotFoundError
 
 # TODO: The following parameters need to be updated by region/service.
 FOLDER_NAME = "StorageService"
-SUB_SERIES = "MAML-2"
+SUB_SERIES = "MAML-1"
 # change FILE_NAME_FORMAT according to parameter files under one service folder
 FILE_NAME_FORMAT = "{}/*prod-*-001-*.Parameters.json".format(FOLDER_NAME, FOLDER_NAME)
 # Object id of your own microsoft account.

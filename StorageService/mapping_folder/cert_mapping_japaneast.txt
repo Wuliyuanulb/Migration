@@ -1,0 +1,58 @@
+public override string KeyVaultName => "studio-jae-MAML-2";
+
+        public override Certificate StorageClientCertificate
+         {
+            get
+            {
+               return new KeyVaultCertificate("StorageClientCertificate") { SecretName = "studio-prod-jae-storage--storageclientcertificate/4f7e6e7d4e9542799876cd612ce4a87c", Owner = StudioProdCommonKeyVaultOwner };
+            }
+         }
+
+        public override Certificate StorageServiceSSL
+         {
+            get
+            {
+               return new KeyVaultCertificate("StorageServiceSSL") { SecretName = "studio-prod-jae-storage--storageservicessl/37c23f7fa9fe40679726917175cc14e1", Owner = StudioProdCommonKeyVaultOwner };
+            }
+         }
+
+        public override Certificate PIIPrimaryCert
+         {
+            get
+            {
+               return new KeyVaultCertificate("PIIPrimaryCert") { SecretName = "studio-prod-jae-storage--StoragePIIPrimaryCert/7ff123048b934608ba4b8f353a6bc9f2", Owner = StudioProdCommonKeyVaultOwner };
+            }
+         }
+
+        public override Certificate PIISecondaryCert
+         {
+            get
+            {
+               return new KeyVaultCertificate("PIISecondaryCert") { SecretName = "studio-prod-jae-storage--StoragePIIPrimaryCert/283fc3f9810b4fbfad5ab3425cac2c83", Owner = StudioProdCommonKeyVaultOwner };
+            }
+         }
+
+        public override Certificate MdmCertificate
+         {
+            get
+            {
+               return new KeyVaultCertificate("MdmCertificate") { SecretName = "studio-prod--mdmcert/3631bde2be344b899043727dc9bcbf0c", Owner = StudioProdCommonKeyVaultOwner };
+            }
+         }
+
+        public override Certificate ServiceConfig
+         {
+            get
+            {
+               return new KeyVaultCertificate("ServiceConfig") { SecretName = "studio-prod--serviceconfigcert-ar/c6925e667b6c4c46b1da5aeaa8c0757f", Owner = StudioProdCommonKeyVaultOwner };
+            }
+         }
+
+        public override Certificate GCSCertificate
+         {
+            get
+            {
+               return new KeyVaultCertificate("GCSCertificate") { SecretName = "studio-prod--gcscert/1b8e01de32d24e7985fdc3b48f44fc14", Owner = StudioProdCommonKeyVaultOwner };
+            }
+         }
+
