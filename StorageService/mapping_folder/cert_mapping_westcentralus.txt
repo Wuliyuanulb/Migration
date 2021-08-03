@@ -1,10 +1,10 @@
-public override string KeyVaultName => "studio-wcus-MAML-2";
+public override string KeyVaultName => "studio-wcus-MAML-1";
 
         public override Certificate StorageClientCertificate
          {
             get
             {
-               return new KeyVaultCertificate("StorageClientCertificate") { SecretName = "studio-prod-uswc-storage--storageclientcertificate/45b84621d90e4450995840e32357c3af", Owner = StudioProdCommonKeyVaultOwner };
+               return new KeyVaultCertificate("StorageClientCertificate") { SecretName = "studio-prod-uswc-storage--storageclientcertificate/487e82acc6af4a86bebc552e8bd7c72e", Owner = StudioProdCommonKeyVaultOwner };
             }
          }
 
@@ -12,7 +12,7 @@ public override string KeyVaultName => "studio-wcus-MAML-2";
          {
             get
             {
-               return new KeyVaultCertificate("StorageServiceSSL") { SecretName = "studio-prod-uswc-storage--storageservicessl/f3e9adbcf296495d96edf12d9e4a15d7", Owner = StudioProdCommonKeyVaultOwner };
+               return new KeyVaultCertificate("StorageServiceSSL") { SecretName = "studio-prod-uswc-storage--storageservicessl/ba67d4c80ca84d09bc60be2d32b9f506", Owner = StudioProdCommonKeyVaultOwner };
             }
          }
 
@@ -20,7 +20,7 @@ public override string KeyVaultName => "studio-wcus-MAML-2";
          {
             get
             {
-               return new KeyVaultCertificate("PIIPrimaryCert") { SecretName = "studio-prod-uswc-storage--StoragePIIPrimaryCert/7a13ccf40f7c41889ccd259a31982302", Owner = StudioProdCommonKeyVaultOwner };
+               return new KeyVaultCertificate("PIIPrimaryCert") { SecretName = "studio-prod-uswc-storage--StoragePIIPrimaryCert/f8e61288e82a4165b8722c9d6e23e675", Owner = StudioProdCommonKeyVaultOwner };
             }
          }
 
@@ -28,7 +28,7 @@ public override string KeyVaultName => "studio-wcus-MAML-2";
          {
             get
             {
-               return new KeyVaultCertificate("PIISecondaryCert") { SecretName = "studio-prod-uswc-storage--StoragePIIPrimaryCert/cd4db8e2279347cc925074cd121767bd", Owner = StudioProdCommonKeyVaultOwner };
+               return new KeyVaultCertificate("PIISecondaryCert") { SecretName = "studio-prod-uswc-storage--StoragePIIPrimaryCert/53171327d2d14e6abb4cb94eae4d3cb4", Owner = StudioProdCommonKeyVaultOwner };
             }
          }
 
@@ -36,7 +36,7 @@ public override string KeyVaultName => "studio-wcus-MAML-2";
          {
             get
             {
-               return new KeyVaultCertificate("MdmCertificate") { SecretName = "studio-prod--mdmcert/c7a3d6ce504b42038534b020b3edcf28", Owner = StudioProdCommonKeyVaultOwner };
+               return new KeyVaultCertificate("MdmCertificate") { SecretName = "studio-prod--mdmcert/8267ccc540b344b3995c843e2b4edc5c", Owner = StudioProdCommonKeyVaultOwner };
             }
          }
 
@@ -44,7 +44,7 @@ public override string KeyVaultName => "studio-wcus-MAML-2";
          {
             get
             {
-               return new KeyVaultCertificate("ServiceConfig") { SecretName = "studio-prod--serviceconfigcert-ar/274099de1d5a4f4882bcd0494a83d2b3", Owner = StudioProdCommonKeyVaultOwner };
+               return new KeyVaultCertificate("ServiceConfig") { SecretName = "studio-prod--serviceconfigcert-ar/3af441b165bd4edcba9ea21109f93936", Owner = StudioProdCommonKeyVaultOwner };
             }
          }
 
@@ -52,7 +52,7 @@ public override string KeyVaultName => "studio-wcus-MAML-2";
          {
             get
             {
-               return new KeyVaultCertificate("GCSCertificate") { SecretName = "studio-prod--gcscert/a35d37faf95d45a48c5f0034ba8eff70", Owner = StudioProdCommonKeyVaultOwner };
+               return new KeyVaultCertificate("GCSCertificate") { SecretName = "studio-prod--gcscert/5c0a4afd29f842b2ad143504e566246a", Owner = StudioProdCommonKeyVaultOwner };
             }
          }
 
