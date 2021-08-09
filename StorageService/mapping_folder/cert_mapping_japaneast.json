@@ -12,7 +12,7 @@
     {
         "name": "PIIPrimaryCert",
         "sourceUrl": "https://studio-prod-jae-storage.vault.azure.net:443/secrets/StoragePIIPrimaryCert/95b2cba16ad247fdb1df058498ef6978",
-        "destUrl": "https://studio-jae-MAML-1.vault.azure.net:443/secrets/studio-prod-jae-storage--StoragePIIPrimaryCert/3f177cce38814c0e8dc79c9496d41fab"
+        "destUrl": "https://studio-jae-MAML-1.vault.azure.net:443/secrets/studio-prod-jae-storage--StoragePIIPrimaryCert/3b2bad93289e4e2797a44624d25547fe"
     },
     {
         "name": "PIISecondaryCert",

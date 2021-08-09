@@ -2,17 +2,17 @@
     {
         "name": "StorageClientCertificate",
         "sourceUrl": "https://studio-prod-sea-storage.vault.azure.net:443/secrets/storageclientcertificate",
-        "destUrl": "https://studio-sea-MAML-1.vault.azure.net:443/secrets/studio-prod-sea-storage--storageclientcertificate/cb880b59149447b0b748247e02c63331"
+        "destUrl": "https://studio-sea-MAML-1.vault.azure.net:443/secrets/studio-prod-sea-storage--storageclientcertificate/4ff8779b75e640ebbbb28f0f6200c8fb"
     },
     {
         "name": "StorageServiceSSL",
         "sourceUrl": "https://studio-prod-sea-storage.vault.azure.net:443/secrets/storageservicessl",
-        "destUrl": "https://studio-sea-MAML-1.vault.azure.net:443/secrets/studio-prod-sea-storage--storageservicessl/bc8b1e2dbdb249f59017a3924650e4ab"
+        "destUrl": "https://studio-sea-MAML-1.vault.azure.net:443/secrets/studio-prod-sea-storage--storageservicessl/209be57d5ad24753943c63a675ae8f41"
     },
     {
         "name": "PIIPrimaryCert",
         "sourceUrl": "https://studio-prod-sea-storage.vault.azure.net:443/secrets/StoragePIIPrimaryCert/cd226e9fd1474811b667145b25172af0",
-        "destUrl": "https://studio-sea-MAML-1.vault.azure.net:443/secrets/studio-prod-sea-storage--StoragePIIPrimaryCert/f46af948175b4070993572f62c900ce1"
+        "destUrl": "https://studio-sea-MAML-1.vault.azure.net:443/secrets/studio-prod-sea-storage--StoragePIIPrimaryCert/380aa1ed421c4e2d878613065d78a7c0"
     },
     {
         "name": "PIISecondaryCert",

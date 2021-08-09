@@ -20,7 +20,7 @@ public override string KeyVaultName => "studio-scus-MAML-1";
         {
             get
             {
-               return new KeyVaultCertificate("PIIPrimaryCert") { SecretName = "studio-prod-scus-storage--StoragePIIPrimaryCert/e05a390070774660828d88d907f35038", Owner = StudioProdCommonKeyVaultOwner };
+               return new KeyVaultCertificate("PIIPrimaryCert") { SecretName = "studio-prod-scus-storage--StoragePIIPrimaryCert/8a051620946a48eda3e1e0ab8f4ff4c5", Owner = StudioProdCommonKeyVaultOwner };
             }
         }
 

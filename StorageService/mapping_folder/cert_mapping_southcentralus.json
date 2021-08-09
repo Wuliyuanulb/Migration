@@ -12,7 +12,7 @@
     {
         "name": "PIIPrimaryCert",
         "sourceUrl": "https://studio-prod-scus-storage.vault.azure.net:443/secrets/StoragePIIPrimaryCert/c6691e06226d46889ed4685f1a1c7503",
-        "destUrl": "https://studio-scus-MAML-1.vault.azure.net:443/secrets/studio-prod-scus-storage--StoragePIIPrimaryCert/e05a390070774660828d88d907f35038"
+        "destUrl": "https://studio-scus-MAML-1.vault.azure.net:443/secrets/studio-prod-scus-storage--StoragePIIPrimaryCert/8a051620946a48eda3e1e0ab8f4ff4c5"
     },
     {
         "name": "PIISecondaryCert",

@@ -20,7 +20,7 @@ public override string KeyVaultName => "studio-jae-MAML-1";
         {
             get
             {
-               return new KeyVaultCertificate("PIIPrimaryCert") { SecretName = "studio-prod-jae-storage--StoragePIIPrimaryCert/3f177cce38814c0e8dc79c9496d41fab", Owner = StudioProdCommonKeyVaultOwner };
+               return new KeyVaultCertificate("PIIPrimaryCert") { SecretName = "studio-prod-jae-storage--StoragePIIPrimaryCert/3b2bad93289e4e2797a44624d25547fe", Owner = StudioProdCommonKeyVaultOwner };
             }
         }
 

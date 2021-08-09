@@ -2,17 +2,17 @@
     {
         "name": "StorageClientCertificate",
         "sourceUrl": "https://studio-prod-weu-storage.vault.azure.net:443/secrets/storageclientcertificate",
-        "destUrl": "https://studio-weu-MAML-1.vault.azure.net:443/secrets/studio-prod-weu-storage--storageclientcertificate/c793ed7116af4ce0bd9e42f5224cdfd6"
+        "destUrl": "https://studio-weu-MAML-1.vault.azure.net:443/secrets/studio-prod-weu-storage--storageclientcertificate/46618a2f8e124a8180dfdf56e1b12adc"
     },
     {
         "name": "StorageServiceSSL",
         "sourceUrl": "https://studio-prod-weu-storage.vault.azure.net:443/secrets/storageservicessl",
-        "destUrl": "https://studio-weu-MAML-1.vault.azure.net:443/secrets/studio-prod-weu-storage--storageservicessl/5d9e5ab4a319496dbaac1d37a61ce57c"
+        "destUrl": "https://studio-weu-MAML-1.vault.azure.net:443/secrets/studio-prod-weu-storage--storageservicessl/ca0651a1c28f442d9229984adbc72b0e"
     },
     {
         "name": "PIIPrimaryCert",
         "sourceUrl": "https://studio-prod-weu-storage.vault.azure.net:443/secrets/StoragePIIPrimaryCert/7a5602bb45c04062bc035665864241a8",
-        "destUrl": "https://studio-weu-MAML-1.vault.azure.net:443/secrets/studio-prod-weu-storage--StoragePIIPrimaryCert/ab74b2b7b7934a2faaa2a32c8a7411d9"
+        "destUrl": "https://studio-weu-MAML-1.vault.azure.net:443/secrets/studio-prod-weu-storage--StoragePIIPrimaryCert/0bee3823100446249a3f106010710cb7"
     },
     {
         "name": "PIISecondaryCert",
