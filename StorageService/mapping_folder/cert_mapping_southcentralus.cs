@@ -48,7 +48,7 @@ public override string KeyVaultName => "studio-scus-MAML-1";
             }
         }
 
-        public override Certificate GCSCertificate
+        public override Certificate GCSCert
         {
             get
             {
