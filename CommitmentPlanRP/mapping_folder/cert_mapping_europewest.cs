@@ -1,4 +1,4 @@
-       public override string KeyVaultName => "studio-weu-MAML-2";
+        public override string KeyVaultName => "studio-weu-MAML-2";
 
         public override string SMStarAzureMLNetCert => "CommitmentplansMamlProd--SMStarAzureMLNetCert-WestEurope/05eea307cc6849ccbd3e3eb8bb91bfb5";
 
