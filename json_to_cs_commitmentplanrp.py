@@ -1,14 +1,14 @@
 import glob
 import json
 
-FOLDER_NAME = "StorageService"
+FOLDER_NAME = "CommitmentPlanRP"
 
 
 def format_to_cs(file):
     with open(file, 'r') as f:
         mapping = json.load(f)
 
-    cs_file_name = file[:-5] + '.txt'
+    cs_file_name = file[:-5] + '.cs'
     with open(cs_file_name, 'w') as f:
         kv_info = mapping[0].get('destUrl')
         kv = kv_info.split('.')[0][len('https://'):]

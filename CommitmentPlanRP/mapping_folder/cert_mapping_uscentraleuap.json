@@ -2,12 +2,12 @@
     {
         "name": "SMStarAzureMLNetCert",
         "sourceUrl": "https://CommitmentplansMamlProd.vault.azure.net/secrets/SMStarAzureMLNetCert-CentralUsEuap/",
-        "destUrl": "https://studio-usce-MAML-2.vault.azure.net:443/secrets/CommitmentplansMamlProd--SMStarAzureMLNetCert-CentralUsEuap/f42f434a4bc84cc8bbfe113426971c25"
+        "destUrl": "https://studio-usce-MAML-2.vault.azure.net:443/secrets/CommitmentplansMamlProd--SMStarAzureMLNetCert-CentralUsEuap/e98e783f971040c08756d31f5dd38b33"
     },
     {
         "name": "CloudMLCommitmentBillingServiceAuthCert",
         "sourceUrl": "https://CommitmentplansMamlProd.vault.azure.net/secrets/CloudMLCommitmentBillingServiceAuthCert-CentralUsEuap/",
-        "destUrl": "https://studio-usce-MAML-2.vault.azure.net:443/secrets/CommitmentplansMamlProd--CloudMLCommitmentBillingServiceAuthCert-CentralUsEuap/cc3afe9555974041abbcfb47fdba5ceb"
+        "destUrl": "https://studio-usce-MAML-2.vault.azure.net:443/secrets/CommitmentplansMamlProd--CloudMLCommitmentBillingServiceAuthCert-CentralUsEuap/962fcd2e3cf942da96124374376e4bc5"
     },
     {
         "name": "gcsCert",
