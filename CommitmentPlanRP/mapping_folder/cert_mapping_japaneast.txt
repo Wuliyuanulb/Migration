@@ -1,8 +1,0 @@
-        public override string KeyVaultName => "studio-jae-MAML-2";
-
-        public override string SMStarAzureMLNetCert => "CommitmentplansMamlProd--SMStarAzureMLNetCert-JapanEast/9797ee89817842cd922e01ffabe691ee";
-
-        public override string CloudMLCommitmentBillingServiceAuthCert => "CommitmentplansMamlProd--CloudMLCommitmentBillingServiceAuthCert-JapanEast/954465622dcb4a5d8becd23c5a7a56b7";
-
-        public override string GcsCert => "CommitmentplansMamlProd--mamlplanrpgcs/b464211fc4ae4b95ba9996aa8a56f644";
-

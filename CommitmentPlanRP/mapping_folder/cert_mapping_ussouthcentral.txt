@@ -1,8 +1,0 @@
-        public override string KeyVaultName => "studio-scus-MAML-2";
-
-        public override string SMStarAzureMLNetCert => "CommitmentplansMamlProd--SMStarAzureMLNetCert-SouthCentralUs/b340980ed2bc4b99932588ff4086265b";
-
-        public override string CloudMLCommitmentBillingServiceAuthCert => "CommitmentplansMamlProd--CloudMLCommitmentBillingServiceAuthCert-SouthCentralUs/a893bf7ad0054faa9279bb7ac646a6d2";
-
-        public override string GcsCert => "CommitmentplansMamlProd--mamlplanrpgcs/c6cf3109b33e46feb001e9608526512d";
-
