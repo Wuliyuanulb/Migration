@@ -21,7 +21,7 @@ from azure.core.exceptions import ResourceNotFoundError
 FOLDER_NAME = "officeapps"
 SUB_SERIES = "MAML-4-comm"
 # change FILE_NAME_FORMAT according to parameter files under one service folder
-FILE_NAME_FORMAT = "{}/*-001_*_Parameters.json".format(FOLDER_NAME, FOLDER_NAME)
+FILE_NAME_FORMAT = "{}/*1_*_Parameters.json".format(FOLDER_NAME, FOLDER_NAME)
 # Object id of your own microsoft account.
 OBJECT_ID = "8f919de4-02b0-48de-ba4c-a13be2e19c33"
 DEST_RESOURCE_GROUP_NAME = "studio-migration"
@@ -88,7 +88,8 @@ LOCATION_SHORT_NAME = {
     "eastasia": "ea",
     "asiaeast": "ea",
     "northeurope": "neu",
-    "westus": "wus"
+    "westus": "wus",
+    "uswest": "wus"
 }
 SUB_SERIES_WHITE_LIST = ["MAML-1", "MAML-2", "MAML-4-comm", "MAML-13-UX"]
 TENANT_ID = "72f988bf-86f1-41af-91ab-2d7cd011db47"
@@ -98,7 +99,7 @@ DEPLOYMENT_APP_OBJECT_ID = "cbdda706-d154-4831-85c5-58f6a3765b3f"
 # TODO: change parse policy to automatically get location fro file name
 def _get_location_from_file_name(file):
     # NOTE: need to change here
-    location = file.split("-")[1]
+    location = file.split("-")[2]
     return location
 
 
