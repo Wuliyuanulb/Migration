@@ -5,9 +5,6 @@
 import re
 import base64
 import json
-import glob
-import subprocess
-import os
 
 from azure.identity import AzureCliCredential
 from azure.keyvault.certificates import CertificateClient
@@ -17,118 +14,31 @@ from azure.mgmt.resource import ResourceManagementClient
 from azure.common.credentials import get_azure_cli_credentials
 from azure.core.exceptions import ResourceNotFoundError
 
-# TODO: The following parameters need to be updated by region/service.
-FOLDER_NAME = "officeapps"
-SUB_SERIES = "MAML-4-comm"
-# change FILE_NAME_FORMAT according to parameter files under one service folder
-FILE_NAME_FORMAT = "{}/*2_*_Parameters.json".format(FOLDER_NAME, FOLDER_NAME)
+
+FOLDER_NAME = "Auth"
+DEST_VAULT_NAME = "studio-test-eastus2-2"
+DEST_LOCATION = "eastus2"
+SUBSCRIPTION_ID = "4f455bd0-f95a-4b7d-8d08-078611508e0b"
+INPUT_PARAMETER_JSON = \
+    fr".\{FOLDER_NAME}\passausts-Test-East US 2_CloudService.Parameters.json"
+
+
 # Object id of your own microsoft account.
-OBJECT_ID = "8f919de4-02b0-48de-ba4c-a13be2e19c33"
+OBJECT_ID = "48d778e1-dc10-421b-8a65-4ac90dc3c21b"
+
+
 DEST_RESOURCE_GROUP_NAME = "studio-migration"
-#############################################################################################
-
-global DEST_LOCATION
-MAPPING_FOLDER = 'mapping_folder'
-if not os.path.exists(rf'{FOLDER_NAME}\{MAPPING_FOLDER}'):
-    os.mkdir(rf'{FOLDER_NAME}\{MAPPING_FOLDER}')
-
-LOCATION_TO_SUB_IDs = {
-    "centraluseuap": {
-        "MAML-1": "1220ed94-c61b-4690-b5c6-acc242a69250",
-        "MAML-2": "8402e523-a30f-4d05-917e-fb5a74b3ff5a",
-    },
-    "westcentralus": {
-        "MAML-1": "c1f017cf-6887-4b7b-901b-efd8647d04c6",
-        "MAML-2": "4ee2639f-70ee-4e6f-99f6-b4361dbe4ce1",
-    },
-    "westeurope": {
-        "MAML-1": "db252142-caa2-4ea2-83cb-04677720fe1f",
-        "MAML-2": "cdb0a04a-e5cd-4cfa-8dcf-fd5678880640",
-    },
-    "southcentralus": {
-        "MAML-1": "a0e9f47a-2fbb-4dca-8071-169298ff7f6a",
-        "MAML-2": "3a4d3ed0-61ec-41ab-956b-91f3168c1e0f",
-    },
-    "southeastasia": {
-        "MAML-1": "6c54c4ca-e743-45a6-ba22-c4ecff8c06d1",
-        "MAML-2": "212b350a-9910-41d7-906d-4689ed4977db",
-    },
-    "japaneast": {
-        "MAML-1": "697346b9-61f2-4685-9c98-5703480f5370",
-        "MAML-2": "d56631dc-e554-4a36-8096-ab25a16cb612",
-    },
-    "eastus2": {
-        "MAML-2": "3a70124c-988d-4a70-ae83-ddc4c203da75"
-    }
-}
-LOCATION_TO_SUB_IDs['uscentraleuap'] = LOCATION_TO_SUB_IDs['centraluseuap']
-LOCATION_TO_SUB_IDs['uswestcentral'] = LOCATION_TO_SUB_IDs['westcentralus']
-LOCATION_TO_SUB_IDs['europewest'] = LOCATION_TO_SUB_IDs['westeurope']
-LOCATION_TO_SUB_IDs['ussouthcentral'] = LOCATION_TO_SUB_IDs['southcentralus']
-LOCATION_TO_SUB_IDs['asiasoutheast'] = LOCATION_TO_SUB_IDs['southeastasia']
-LOCATION_TO_SUB_IDs['useast2'] = LOCATION_TO_SUB_IDs['eastus2']
-
-MAML_Production_4_Community_ID = "6c868b6a-900a-4b5d-8c03-2d5506291b33"
-MAML_Production_13_Web_Service_Management_UX_ID = "4d3bdb9c-a8d4-4a75-9ce4-cd4244c00d64"
-LOCATION_SHORT_NAME = {
-    "centraluseuap": "usce",
-    "uscentraleuap": "usce",
-    "westcentralus": "wcus",
-    "uswestcentral": "wcus",
-    "westeurope": "weu",
-    "europewest": "weu",
-    "southcentralus": "scus",
-    "ussouthcentral": "scus",
-    "southeastasia": "sea",
-    "asiasoutheast": "sea",
-    "japaneast": "jae",
-    "eastus2": "eus2",
-    "useast2": "eus2",
-    "eastus": "eus",
-    "eastasia": "ea",
-    "asiaeast": "ea",
-    "northeurope": "neu",
-    "westus": "wus",
-    "uswest": "wus"
-}
-SUB_SERIES_WHITE_LIST = ["MAML-1", "MAML-2", "MAML-4-comm", "MAML-13-UX"]
 TENANT_ID = "72f988bf-86f1-41af-91ab-2d7cd011db47"
 # Application used for ev2 deployment in release pipeline.
 DEPLOYMENT_APP_OBJECT_ID = "cbdda706-d154-4831-85c5-58f6a3765b3f"
 
-# TODO: change parse policy to automatically get location fro file name
-def _get_location_from_file_name(file):
-    # NOTE: need to change here
-    location = file.split("-")[2]
-    return location
+
+DEST_VAULT_URL = f"https://{DEST_VAULT_NAME}.vault.azure.net"
+OUTPUT_CERT_MAPPING_JSON = rf".\{FOLDER_NAME}\cert_mapping_test.json"
 
 
-def get_subscription_id(location: str, sub_series: str) -> str:
-    if sub_series not in SUB_SERIES_WHITE_LIST:
-        raise ValueError(f"Parameter sub_series must be one of {SUB_SERIES_WHITE_LIST}. Got {sub_series}")
-
-    if sub_series in ["MAML-1", "MAML-2"]:
-        sub_id = LOCATION_TO_SUB_IDs.get(location).get(sub_series)
-        if not sub_id:
-            raise Exception(f"Subscription not found for location {location} and sub_series {sub_series}")
-        return sub_id
-
-    elif sub_series == "MAML-4-comm":
-        return MAML_Production_4_Community_ID
-
-    elif sub_series == "MAML-13-UX":
-        return MAML_Production_13_Web_Service_Management_UX_ID
-
-
-def get_dest_vault_name(location: str, sub_series: str) -> str:
-    if sub_series not in SUB_SERIES_WHITE_LIST:
-        raise ValueError(f"Parameter sub_series must be one of {SUB_SERIES_WHITE_LIST}. Got {sub_series}")
-
-    location_short_name = LOCATION_SHORT_NAME.get(location)
-    if not location_short_name:
-        raise ValueError(f"Location short name not found for location {location}")
-
-    return f"studio-{location_short_name}-{sub_series}"
+secret_client_cache_dict = dict()
+cert_client_cache_dict = dict()
 
 
 def _create_dest_key_vault():
@@ -305,35 +215,11 @@ def _get_certificate_version_in_dest_key_vault(
     raise Exception(f"Failed to find certificate {source_cert_name} in key vault {DEST_VAULT_NAME}")
 
 
-def _get_files():
-    file_name_format = FILE_NAME_FORMAT
-    files = glob.glob(file_name_format)
-    print("All parameter files:", files)
-    return files
+def main():
+    _create_dest_key_vault()
 
-
-def _assign_kv_policy():
-    # assign kv access policy
-    secret_permissions = "get list set delete backup restore recover"
-    certificate_permissions = "get list delete create import update managecontacts getissuers listissuers setissuers " \
-                              "deleteissuers manageissuers recover backup restore"
-    command = "az keyvault set-policy " \
-              "--name {} " \
-              "--secret-permissions {} " \
-              "--certificate-permissions {} " \
-              "--subscription {} " \
-              "--object-id {}"\
-        .format(DEST_VAULT_NAME, secret_permissions, certificate_permissions, SUBSCRIPTION_ID, OBJECT_ID)
-    try:
-        subprocess.check_call(command, shell=True)
-        print(f'Addded your access to Key Vault {DEST_VAULT_NAME}')
-    except Exception as e:
-        raise Exception(f"Adding access failed: {e}")
-
-
-def source_dest_url_mapping(input_parameter_json):
-    source_dest_url_mapping = []
-    cert_section = _get_cert_section_from_input_file(input_parameter_json)
+    source_dest_url_mapping = list()
+    cert_section = _get_cert_section_from_input_file(INPUT_PARAMETER_JSON)
 
     for c in cert_section:
         mapping_dict = {
@@ -369,8 +255,16 @@ def source_dest_url_mapping(input_parameter_json):
             print(f"Importing cert name {source_cert_name} and version {source_cert_version} into key vault "
                   f"{DEST_VAULT_NAME}...")
             dest_cert_client = _create_certificate_client(DEST_VAULT_URL)
-            dest_cert_client.import_certificate(certificate_name=dest_cert_name,
-                                                certificate_bytes=base64.b64decode(source_cert.value))
+            try:
+                dest_cert_client.import_certificate(certificate_name=dest_cert_name,
+                                                    certificate_bytes=base64.b64decode(source_cert.value))
+            except BaseException as ex:
+                if "Certificate is already expired" in str(ex):
+                    print(f"Cert name {source_cert_name} and version {source_cert_version} has already expired."
+                          f" Need to import manually.")
+                    mapping_dict.update({"destUrl": "Cert is already expired. Import manually."})
+                    source_dest_url_mapping.append(mapping_dict)
+                    continue
 
         # Get the cert url of imported cert.
         dest_cert_version = _get_certificate_version_in_dest_key_vault(
@@ -387,15 +281,4 @@ def source_dest_url_mapping(input_parameter_json):
 
 
 if __name__ == "__main__":
-    files = _get_files()
-    for file in files:
-        DEST_LOCATION = _get_location_from_file_name(file)
-        print("DEST_LOCATION:", DEST_LOCATION)
-        DEST_VAULT_NAME = get_dest_vault_name(DEST_LOCATION, SUB_SERIES)
-        DEST_VAULT_URL = f"https://{DEST_VAULT_NAME}.vault.azure.net"
-        OUTPUT_CERT_MAPPING_JSON = rf".\{FOLDER_NAME}\{MAPPING_FOLDER}\cert_mapping_{DEST_LOCATION}.json"
-        secret_client_cache_dict = {}
-        cert_client_cache_dict = {}
-        SUBSCRIPTION_ID = get_subscription_id(DEST_LOCATION, SUB_SERIES)
-        _assign_kv_policy()
-        source_dest_url_mapping(file)
+    main()
