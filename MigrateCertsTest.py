@@ -24,7 +24,7 @@ INPUT_PARAMETER_JSON = \
 
 
 # Object id of your own microsoft account.
-OBJECT_ID = "48d778e1-dc10-421b-8a65-4ac90dc3c21b"
+OBJECT_ID = "8f919de4-02b0-48de-ba4c-a13be2e19c33"
 
 
 DEST_RESOURCE_GROUP_NAME = "studio-migration"
