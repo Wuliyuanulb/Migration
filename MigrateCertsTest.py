@@ -15,26 +15,26 @@ from azure.common.credentials import get_azure_cli_credentials
 from azure.core.exceptions import ResourceNotFoundError
 
 
-FOLDER_NAME = "Auth"
-DEST_VAULT_NAME = "studio-test-eastus2-2"
-DEST_LOCATION = "eastus2"
-SUBSCRIPTION_ID = "4f455bd0-f95a-4b7d-8d08-078611508e0b"
+FOLDER_NAME = "catalog-ca"
+DEST_VAULT_NAME = "catalog-ca-test-eastus"
+DEST_LOCATION = "eastus"
+SUBSCRIPTION_ID = "80c77c76-74ba-4c8c-8229-4c3b2957990c"
 INPUT_PARAMETER_JSON = \
-    fr".\{FOLDER_NAME}\passausts-Test-East US 2_CloudService.Parameters.json"
+    fr".\{FOLDER_NAME}\catalog-ca-test-eastus-1_UpdateService_Parameters.json"
 
 
 # Object id of your own microsoft account.
 OBJECT_ID = "8f919de4-02b0-48de-ba4c-a13be2e19c33"
 
 
-DEST_RESOURCE_GROUP_NAME = "studio-migration"
+DEST_RESOURCE_GROUP_NAME = "catalog-ca-test-eastus"
 TENANT_ID = "72f988bf-86f1-41af-91ab-2d7cd011db47"
 # Application used for ev2 deployment in release pipeline.
 DEPLOYMENT_APP_OBJECT_ID = "cbdda706-d154-4831-85c5-58f6a3765b3f"
 
 
 DEST_VAULT_URL = f"https://{DEST_VAULT_NAME}.vault.azure.net"
-OUTPUT_CERT_MAPPING_JSON = rf".\{FOLDER_NAME}\cert_mapping_test.json"
+OUTPUT_CERT_MAPPING_JSON = rf".\{FOLDER_NAME}\cert_mapping_test_{DEST_LOCATION}.json"
 
 
 secret_client_cache_dict = dict()
