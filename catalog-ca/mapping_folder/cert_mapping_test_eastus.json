@@ -2,26 +2,26 @@
     {
         "name": "decryptionCert",
         "sourceUrl": "https://community-catalog-test.vault.azure.net/secrets/DecryptCert",
-        "destUrl": "https://studio-test-eastus-2.vault.azure.net:443/secrets/community-catalog-test--DecryptCert/e0fdd06b38ba4ad680ce75800ecce825"
+        "destUrl": "https://catalog-ca-test-eastus.vault.azure.net:443/secrets/community-catalog-test--DecryptCert/695198493a3942479ca1c7da2bd437e7"
     },
     {
         "name": "sslCert",
         "sourceUrl": "https://community-catalog-test.vault.azure.net/secrets/CatalogSSLCertificate",
-        "destUrl": "https://studio-test-eastus-2.vault.azure.net:443/secrets/community-catalog-test--CatalogSSLCertificate/c87ecba1c04c4014ac24883bd765f13d"
+        "destUrl": "https://catalog-ca-test-eastus.vault.azure.net:443/secrets/community-catalog-test--CatalogSSLCertificate/a58c348d884542688d985d5db6359478"
     },
     {
         "name": "indexServiceAuthCert",
         "sourceUrl": "https://community-catalog-test.vault.azure.net/secrets/IndexServiceAuthCertificate",
-        "destUrl": "https://studio-test-eastus-2.vault.azure.net:443/secrets/community-catalog-test--IndexServiceAuthCertificate/ba494c688cee4712b79c4f7ef5a079ed"
+        "destUrl": "https://catalog-ca-test-eastus.vault.azure.net:443/secrets/community-catalog-test--IndexServiceAuthCertificate/6a0f7e0950ca4bde888ac0ff007f15fd"
     },
     {
         "name": "gcsCert",
         "sourceUrl": "https://community-catalog-test.vault.azure.net/secrets/cigallerycatalog-test/",
-        "destUrl": "https://studio-test-eastus-2.vault.azure.net:443/secrets/community-catalog-test--cigallerycatalog-test/a29c61eee3f7479983f4fc95f2e577b1"
+        "destUrl": "https://catalog-ca-test-eastus.vault.azure.net:443/secrets/community-catalog-test--cigallerycatalog-test/3085cfe65edf49fcaac79a17acdcd413"
     },
     {
         "name": "packingServiceAuthCert",
         "sourceUrl": "https://community-catalog-test.vault.azure.net/secrets/PackingServiceAuthCertificate",
-        "destUrl": "https://studio-test-eastus-2.vault.azure.net:443/secrets/community-catalog-test--PackingServiceAuthCertificate/b6b61f324fce4605a8063b4e7d4df74c"
+        "destUrl": "https://catalog-ca-test-eastus.vault.azure.net:443/secrets/community-catalog-test--PackingServiceAuthCertificate/77d21327ccb540efab3f0adf1893cd84"
     }
 ]

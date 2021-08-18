@@ -1,12 +1,12 @@
-        public override string KeyVaultName => "studio-test-eastus-2";
+        public override string KeyVaultName => "catalog-ca-test-eastus";
 
-        public override string DecryptionCert => "community-catalog-test--DecryptCert/e0fdd06b38ba4ad680ce75800ecce825";
+        public override string DecryptionCert => "community-catalog-test--DecryptCert/695198493a3942479ca1c7da2bd437e7";
 
-        public override string SslCert => "community-catalog-test--CatalogSSLCertificate/c87ecba1c04c4014ac24883bd765f13d";
+        public override string SslCert => "community-catalog-test--CatalogSSLCertificate/a58c348d884542688d985d5db6359478";
 
-        public override string IndexServiceAuthCert => "community-catalog-test--IndexServiceAuthCertificate/ba494c688cee4712b79c4f7ef5a079ed";
+        public override string IndexServiceAuthCert => "community-catalog-test--IndexServiceAuthCertificate/6a0f7e0950ca4bde888ac0ff007f15fd";
 
-        public override string GcsCert => "community-catalog-test--cigallerycatalog-test/a29c61eee3f7479983f4fc95f2e577b1";
+        public override string GcsCert => "community-catalog-test--cigallerycatalog-test/3085cfe65edf49fcaac79a17acdcd413";
 
-        public override string PackingServiceAuthCert => "community-catalog-test--PackingServiceAuthCertificate/b6b61f324fce4605a8063b4e7d4df74c";
+        public override string PackingServiceAuthCert => "community-catalog-test--PackingServiceAuthCertificate/77d21327ccb540efab3f0adf1893cd84";
 
