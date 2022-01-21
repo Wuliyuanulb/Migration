@@ -1,0 +1,27 @@
+[
+    {
+        "name": "decryptionCert",
+        "sourceUrl": "https://community-catalog-prod.vault.azure.net/secrets/DecryptCert",
+        "destUrl": "https://studio-neu-MAML-4-comm.vault.azure.net:443/secrets/community-catalog-prod--DecryptCert/62d91dfe527d451db1091e22036d9687"
+    },
+    {
+        "name": "sslCert",
+        "sourceUrl": "https://community-catalog-prod.vault.azure.net/secrets/CatalogSSLCertificate",
+        "destUrl": "https://studio-neu-MAML-4-comm.vault.azure.net:443/secrets/community-catalog-prod--CatalogSSLCertificate/f12baa9c50c040b49f5d972a1b402778"
+    },
+    {
+        "name": "indexServiceAuthCert",
+        "sourceUrl": "https://community-catalog-prod.vault.azure.net/secrets/IndexServiceAuthCertificate",
+        "destUrl": "https://studio-neu-MAML-4-comm.vault.azure.net:443/secrets/community-catalog-prod--IndexServiceAuthCertificate/15dba77f932c4a078d203c82753ec750"
+    },
+    {
+        "name": "gcsCert",
+        "sourceUrl": "https://community-catalog-prod.vault.azure.net/secrets/cigallerycataloggcs/",
+        "destUrl": "https://studio-neu-MAML-4-comm.vault.azure.net:443/secrets/community-catalog-prod--cigallerycataloggcs/988d66e7c47647ea8517c7ea6d02b30f"
+    },
+    {
+        "name": "packingServiceAuthCert",
+        "sourceUrl": "https://community-catalog-prod.vault.azure.net/secrets/PackingServiceAuthCertificate",
+        "destUrl": "https://studio-neu-MAML-4-comm.vault.azure.net:443/secrets/community-catalog-prod--PackingServiceAuthCertificate/95f27aaa632e415da9a7698a9476f3ff"
+    }
+]

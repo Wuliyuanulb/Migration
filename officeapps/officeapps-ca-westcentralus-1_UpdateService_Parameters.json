@@ -1,0 +1,73 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentParameters.json",
+    "contentVersion": "1.0.0.0",
+    "paths": [
+        "servicePackageLink",
+        "serviceConfigurationLink"
+    ],
+    "parameters": {
+        "serviceDomainName": {
+            "value": "officeapps-ca-westcentralus-1"
+        },
+        // TODO: BUILD_NUMBER and CSPKG_BLOB_URL slug will be replaced by VSO build
+        "deploymentLabel": {
+            "value": "1.1.1"
+        },
+        "servicePackageLink": {
+            "value": "bin\\ExcelClientCloudService.cspkg"
+        },
+        "serviceConfigurationLink": {
+            "value": "Configurations\\officeapps-ca-westcentralus-1_ServiceConfiguration.cscfg"
+        },
+        "cloudServiceLocation": {
+            "value": "West Central US"
+        },
+        "sslCertThumbprint": {
+            "value": "sslCert.Thumbprint"
+        },
+        "sslCertContent": {
+            "value": "sslCert.Content"
+        },
+        "gcsCertThumbprint": {
+            "value": "gcsCert.Thumbprint"
+        },
+        "gcsCertContent": {
+            "value": "gcsCert.Content"
+        }
+    },
+    "secrets": [
+        {
+            "TargetReference": "serviceConfigurationLink",
+            "Replacements": {
+                "__MdsStorageAccountKey__": {
+                    "SecretId": "https://officeapps-keys-prod.vault.azure.net/secrets/MdsStorageAccountKey-WestCentralUS"
+                },
+                "__AzSecPackAuditAccountKey__": {
+                    "SecretId": "https://officeapps-keys-prod.vault.azure.net/secrets/AzSecPackAuditAccountKey-WestCentralUS"
+                },
+                "__AzSecPackSecurityAccountKey__": {
+                    "SecretId": "https://officeapps-keys-prod.vault.azure.net/secrets/AzSecPackSecurityAccountKey-WestCentralUS"
+                },
+                "__ExcelAddinStorageAccountKey__": {
+                    "SecretId": "https://officeapps-keys-prod.vault.azure.net/secrets/exceladdinstorage"
+                },
+                "__TitanicSampleKey__": {
+                    "SecretId": "https://officeapps-keys-prod.vault.azure.net/secrets/exceladdintitanicsample"
+                },
+                "__TextSampleKey__": {
+                    "SecretId": "https://officeapps-keys-prod.vault.azure.net/secrets/exceladdintextsample"
+                }
+            },
+            "Certificates": [
+                {
+                    "Name": "sslCert",
+                    "ContentReference": "https://officeapps-keys-prod.vault.azure.net/secrets/excelclientssl/"
+                },
+                {
+                    "Name": "gcsCert",
+                    "ContentReference": "https://officeapps-keys-prod.vault.azure.net/secrets/mamlofficeappsgcs/"
+                }
+            ]
+        }
+    ]
+}

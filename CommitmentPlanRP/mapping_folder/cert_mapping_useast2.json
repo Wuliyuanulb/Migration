@@ -1,0 +1,17 @@
+[
+    {
+        "name": "SMStarAzureMLNetCert",
+        "sourceUrl": "https://CommitmentplansMamlProd.vault.azure.net/secrets/SMStarAzureMLNetCert-EastUs2/",
+        "destUrl": "https://studio-eus2-MAML-2.vault.azure.net:443/secrets/CommitmentplansMamlProd--SMStarAzureMLNetCert-EastUs2/b12f7ee389f34e098d75b67d1b422245"
+    },
+    {
+        "name": "CloudMLCommitmentBillingServiceAuthCert",
+        "sourceUrl": "https://CommitmentplansMamlProd.vault.azure.net/secrets/CloudMLCommitmentBillingServiceAuthCert-EastUs2/",
+        "destUrl": "https://studio-eus2-MAML-2.vault.azure.net:443/secrets/CommitmentplansMamlProd--CloudMLCommitmentBillingServiceAuthCert-EastUs2/7101f88eef2b49f487d7b51240380dc4"
+    },
+    {
+        "name": "gcsCert",
+        "sourceUrl": "https://CommitmentplansMamlProd.vault.azure.net/secrets/mamlplanrpgcs/",
+        "destUrl": "https://studio-eus2-MAML-2.vault.azure.net:443/secrets/CommitmentplansMamlProd--mamlplanrpgcs/6c917179e7c64e9e8d4d188a2637b8da"
+    }
+]

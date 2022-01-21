@@ -1,0 +1,12 @@
+[
+    {
+        "name": "sslCert",
+        "sourceUrl": "https://officeapps-keys-prod.vault.azure.net/secrets/excelclientssl/",
+        "destUrl": "https://studio-wus-MAML-4-comm.vault.azure.net:443/secrets/officeapps-keys-prod--excelclientssl/0bb9b78bc89f4ccb948f3d43e7b8bf49"
+    },
+    {
+        "name": "gcsCert",
+        "sourceUrl": "https://officeapps-keys-prod.vault.azure.net/secrets/mamlofficeappsgcs/",
+        "destUrl": "https://studio-wus-MAML-4-comm.vault.azure.net:443/secrets/officeapps-keys-prod--mamlofficeappsgcs/fe76fb74e2ae411a84dbcc21c701eb8a"
+    }
+]

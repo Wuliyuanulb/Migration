@@ -18,10 +18,10 @@ from azure.common.credentials import get_azure_cli_credentials
 from azure.core.exceptions import ResourceNotFoundError
 
 # TODO: The following parameters need to be updated by region/service.
-FOLDER_NAME = "StorageService"
-SUB_SERIES = "MAML-1"
+FOLDER_NAME = "CommitmentPlanRP"
+SUB_SERIES = "MAML-2"
 # change FILE_NAME_FORMAT according to parameter files under one service folder
-FILE_NAME_FORMAT = "{}/*prod-*-001-*.Parameters.json".format(FOLDER_NAME, FOLDER_NAME)
+FILE_NAME_FORMAT = "{}/*-001_*_Parameters.json".format(FOLDER_NAME, FOLDER_NAME)
 # Object id of your own microsoft account.
 OBJECT_ID = "8f919de4-02b0-48de-ba4c-a13be2e19c33"
 DEST_RESOURCE_GROUP_NAME = "studio-migration"
@@ -98,7 +98,7 @@ DEPLOYMENT_APP_OBJECT_ID = "cbdda706-d154-4831-85c5-58f6a3765b3f"
 # TODO: change parse policy to automatically get location fro file name
 def _get_location_from_file_name(file):
     # NOTE: need to change here
-    location = file.split("_")[0].split('-')[-1].replace(' ', '').lower()
+    location = file.split("-")[1]
     return location
 
 

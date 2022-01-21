@@ -1,0 +1,100 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentParameters.json",
+    "contentVersion": "1.0.0.0",
+    "paths": [
+        "servicePackageLink",
+        "serviceConfigurationLink"
+    ],
+    "parameters": {
+        "deploymentLabel": {
+            "value": "storagecurrent-1.0.5224.5"
+        },
+        "deploymentUnit": {
+            "value": "storageservicecurrent"
+        },
+        "location": {
+            "value": "East US 2"
+        },
+        "serviceConfigurationLink": {
+            "value": "Configurations\\storageservicecurrent-Test-East US 2_CloudService.ServiceConfiguration.cscfg"
+        },
+        "servicePackageLink": {
+            "value": "Bin\\StorageServiceCloudProject\\StorageServiceCloudProject.cspkg"
+        },
+        "StorageServiceSSLThumbprint": {
+            "value": "StorageServiceSSL.Thumbprint"
+        },
+        "StorageServiceSSLContent": {
+            "value": "StorageServiceSSL.Content"
+        },
+        "PIIPrimaryCertThumbprint": {
+            "value": "PIIPrimaryCert.Thumbprint"
+        },
+        "PIIPrimaryCertContent": {
+            "value": "PIIPrimaryCert.Content"
+        },
+        "ServiceConfigThumbprint": {
+            "value": "ServiceConfig.Thumbprint"
+        },
+        "ServiceConfigContent": {
+            "value": "ServiceConfig.Content"
+        },
+        "MdmCertificateThumbprint": {
+            "value": "MdmCertificate.Thumbprint"
+        },
+        "MdmCertificateContent": {
+            "value": "MdmCertificate.Content"
+        },
+        "StorageClientCertificateThumbprint": {
+            "value": "StorageClientCertificate.Thumbprint"
+        },
+        "StorageClientCertificateContent": {
+            "value": "StorageClientCertificate.Content"
+        },
+        "GCSCertificateThumbprint": {
+            "value": "GCSCertificate.Thumbprint"
+        },
+        "GCSCertificateContent": {
+            "value": "GCSCertificate.Content"
+        },
+    },
+    "secrets": [
+        {
+            "TargetReference": "serviceConfigurationLink",
+            "Replacements": {
+                "ServiceStorageAccountKeyKvSecret_KeyVaultSecret": "https://studio-test-scus-storage.vault.azure.net:443/secrets/storageservicecurrent-Key2/65b376f9c83d4fe19562bf21a53d6176",
+                "ServiceStorageAccountNameKvSecret_KeyVaultSecret": "https://studio-test-scus-storage.vault.azure.net:443/secrets/storageservicecurrent-Name/a67920f9a7ba45b592c559032fbc9495",
+                "AzSecPackAuditBootstrapKeyKvSecret_KeyVaultSecret": "https://studio-test-scus.vault.azure.net:443/secrets/AzSecPackAuditAutoKeyTestUSE1",
+                "AzSecPackSecurityBootstrapKeyKvSecret_KeyVaultSecret": "https://studio-test-scus.vault.azure.net:443/secrets/AzSecPackSecurityAutoKeyTestUSE1",
+                "MdsStudioStorageAccountNameKvSecret_KeyVaultSecret": "https://studio-test-scus.vault.azure.net:443/secrets/MdsTestStudioStorageAccount-Name/7fcce60331744617b3bcd46991f4c9dd",
+                "MdsStudioStorageAccountKeyKvSecret_KeyVaultSecret": "https://studio-test-scus.vault.azure.net:443/secrets/MdsTestStudioStorageAccount-Key2/8f579c88e2b74aa881ed9a7037b2b2b5",
+            },
+            "Certificates": [
+                {
+	                "Name": "StorageServiceSSL",
+	                "ContentReference" : "https://studio-test-scus-storage.vault.azure.net:443/secrets/storageservicecurrentssl"
+                },
+                {
+	                "Name": "PIIPrimaryCert",
+	                "ContentReference" : "https://studio-test-scus-storage.vault.azure.net:443/secrets/StorageCurrentPIIPrimaryCert/cb736e8b53cf4573bdacf16b1b8ef5af"
+                },
+                {
+	                "Name": "ServiceConfig",
+	                "ContentReference" : "https://studio-test.vault.azure.net:443/secrets/serviceconfig-new/68babebcbe6b4e609e46efe48b51321d"
+                },
+                {
+	                "Name": "MdmCertificate",
+	                "ContentReference" : "https://studio-test.vault.azure.net:443/secrets/mdmcert/91d7545e3d4e4c78b9faf8f0e342a38a"
+                },
+                {
+	                "Name": "StorageClientCertificate",
+	                "ContentReference" : "https://studio-test.vault.azure.net:443/secrets/clientCertificate/1937382e36ea45b28edfdb6c67d99a28"
+                },
+                {
+	                "Name": "GCSCertificate",
+	                "ContentReference" : "https://studio-test.vault.azure.net:443/secrets/gcscert"
+                },
+            ]
+        }
+    ]
+}

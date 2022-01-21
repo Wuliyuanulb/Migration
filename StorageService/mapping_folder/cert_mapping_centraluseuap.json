@@ -1,0 +1,37 @@
+[
+    {
+        "name": "StorageClientCertificate",
+        "sourceUrl": "https://studio-prod-usce-storage.vault.azure.net:443/secrets/storageclientcertificate",
+        "destUrl": "https://studio-usce-MAML-1.vault.azure.net:443/secrets/studio-prod-usce-storage--storageclientcertificate/049efb17264040cb935e1ae2b8939a9f"
+    },
+    {
+        "name": "StorageServiceSSL",
+        "sourceUrl": "https://studio-prod-usce-storage.vault.azure.net:443/secrets/storageservicessl",
+        "destUrl": "https://studio-usce-MAML-1.vault.azure.net:443/secrets/studio-prod-usce-storage--storageservicessl/96a300cccf09461dbd257c6c9a7575b1"
+    },
+    {
+        "name": "PIIPrimaryCert",
+        "sourceUrl": "https://studio-prod-usce-storage.vault.azure.net:443/secrets/StoragePIIPrimaryCert/f4e6aaf7e1024af38ed44c4974e5cb20",
+        "destUrl": "https://studio-usce-MAML-1.vault.azure.net:443/secrets/studio-prod-usce-storage--StoragePIIPrimaryCert/3ce3484916c547f296ec75e566d800a0"
+    },
+    {
+        "name": "PIISecondaryCert",
+        "sourceUrl": "https://studio-prod-usce-storage.vault.azure.net:443/secrets/StoragePIIPrimaryCert/72a4ebc39ce1410584b14984595519ae",
+        "destUrl": "https://studio-usce-MAML-1.vault.azure.net:443/secrets/studio-prod-usce-storage--StoragePIIPrimaryCert/0d71000fb7654ceebe18536a06a6babe"
+    },
+    {
+        "name": "MdmCertificate",
+        "sourceUrl": "https://studio-prod.vault.azure.net:443/secrets/mdmcert",
+        "destUrl": "https://studio-usce-MAML-1.vault.azure.net:443/secrets/studio-prod--mdmcert/7c5db7d2f9994eca8e883ef352ff0410"
+    },
+    {
+        "name": "ServiceConfig",
+        "sourceUrl": "https://studio-prod.vault.azure.net:443/secrets/serviceconfigcert-ar",
+        "destUrl": "https://studio-usce-MAML-1.vault.azure.net:443/secrets/studio-prod--serviceconfigcert-ar/8ed4e2e8fab04df49b14b279dfc499a3"
+    },
+    {
+        "name": "GCSCertificate",
+        "sourceUrl": "https://studio-prod.vault.azure.net:443/secrets/gcscert",
+        "destUrl": "https://studio-usce-MAML-1.vault.azure.net:443/secrets/studio-prod--gcscert/e089af93f0ab4e3da467e75927ff6be8"
+    }
+]

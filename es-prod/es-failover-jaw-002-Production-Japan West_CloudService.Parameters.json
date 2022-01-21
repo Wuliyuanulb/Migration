@@ -1,0 +1,238 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentParameters.json",
+    "contentVersion": "1.0.0.0",
+    "paths": [
+        "servicePackageLink",
+        "serviceConfigurationLink"
+    ],
+    "parameters": {
+        "deploymentLabel": {
+            "value": "es-fail-jaw-002-1.0.5211.1"
+        },
+        "deploymentUnit": {
+            "value": "es-failover-jaw-002"
+        },
+        "location": {
+            "value": "Japan West"
+        },
+        "serviceConfigurationLink": {
+            "value": "Configurations\\es-failover-jaw-002-Production-Japan West_CloudService.ServiceConfiguration.cscfg"
+        },
+        "servicePackageLink": {
+            "value": "Bin\\StudioCloudProject\\StudioCloudProjProdMAML.cspkg"
+        },
+        "ESPIIPrimaryCertificateKvSecretThumbprint": {
+            "value": "ESPIIPrimaryCertificateKvSecret.Thumbprint"
+        },
+        "ESPIIPrimaryCertificateKvSecretContent": {
+            "value": "ESPIIPrimaryCertificateKvSecret.Content"
+        },
+        "PassauDeployCertificateKvSecretThumbprint": {
+            "value": "PassauDeployCertificateKvSecret.Thumbprint"
+        },
+        "PassauDeployCertificateKvSecretContent": {
+            "value": "PassauDeployCertificateKvSecret.Content"
+        },
+        "ResourceProviderClientCertificateKvSecretThumbprint": {
+            "value": "ResourceProviderClientCertificateKvSecret.Thumbprint"
+        },
+        "ResourceProviderClientCertificateKvSecretContent": {
+            "value": "ResourceProviderClientCertificateKvSecret.Content"
+        },
+        "StudioApiSSLCertificateKvSecretThumbprint": {
+            "value": "StudioApiSSLCertificateKvSecret.Thumbprint"
+        },
+        "StudioApiSSLCertificateKvSecretContent": {
+            "value": "StudioApiSSLCertificateKvSecret.Content"
+        },
+        "StudioClientCertificateAlternateKvSecretThumbprint": {
+            "value": "StudioClientCertificateAlternateKvSecret.Thumbprint"
+        },
+        "StudioClientCertificateAlternateKvSecretContent": {
+            "value": "StudioClientCertificateAlternateKvSecret.Content"
+        },
+        "StudioClientCertificateKvSecretThumbprint": {
+            "value": "StudioClientCertificateKvSecret.Thumbprint"
+        },
+        "StudioClientCertificateKvSecretContent": {
+            "value": "StudioClientCertificateKvSecret.Content"
+        },
+        "AadAuthCertificateKvSecretThumbprint": {
+            "value": "AadAuthCertificateKvSecret.Thumbprint"
+        },
+        "AadAuthCertificateKvSecretContent": {
+            "value": "AadAuthCertificateKvSecret.Content"
+        },
+        "AcsTokenCertificateKvSecretThumbprint": {
+            "value": "AcsTokenCertificateKvSecret.Thumbprint"
+        },
+        "AcsTokenCertificateKvSecretContent": {
+            "value": "AcsTokenCertificateKvSecret.Content"
+        },
+        "AcsTokenCertificateSecondaryKvSecretThumbprint": {
+            "value": "AcsTokenCertificateSecondaryKvSecret.Thumbprint"
+        },
+        "AcsTokenCertificateSecondaryKvSecretContent": {
+            "value": "AcsTokenCertificateSecondaryKvSecret.Content"
+        },
+        "DatalabAnalyticsComCertificateKvSecretThumbprint": {
+            "value": "DatalabAnalyticsComCertificateKvSecret.Thumbprint"
+        },
+        "DatalabAnalyticsComCertificateKvSecretContent": {
+            "value": "DatalabAnalyticsComCertificateKvSecret.Content"
+        },
+        "DecryptCertificateKvSecretThumbprint": {
+            "value": "DecryptCertificateKvSecret.Thumbprint"
+        },
+        "DecryptCertificateKvSecretContent": {
+            "value": "DecryptCertificateKvSecret.Content"
+        },
+        "GetAllUsersClientCertKvSecretThumbprint": {
+            "value": "GetAllUsersClientCertKvSecret.Thumbprint"
+        },
+        "GetAllUsersClientCertKvSecretContent": {
+            "value": "GetAllUsersClientCertKvSecret.Content"
+        },
+        "MdmCertificateKvSecretThumbprint": {
+            "value": "MdmCertificateKvSecret.Thumbprint"
+        },
+        "MdmCertificateKvSecretContent": {
+            "value": "MdmCertificateKvSecret.Content"
+        },
+        "ServiceConfigCertificateKvSecretThumbprint": {
+            "value": "ServiceConfigCertificateKvSecret.Thumbprint"
+        },
+        "ServiceConfigCertificateKvSecretContent": {
+            "value": "ServiceConfigCertificateKvSecret.Content"
+        },
+        "StudioApiDataMovementClientCertificateKvSecretThumbprint": {
+            "value": "StudioApiDataMovementClientCertificateKvSecret.Thumbprint"
+        },
+        "StudioApiDataMovementClientCertificateKvSecretContent": {
+            "value": "StudioApiDataMovementClientCertificateKvSecret.Content"
+        },
+        "StudioStageIdentityCertificateKvSecretThumbprint": {
+            "value": "StudioStageIdentityCertificateKvSecret.Thumbprint"
+        },
+        "StudioStageIdentityCertificateKvSecretContent": {
+            "value": "StudioStageIdentityCertificateKvSecret.Content"
+        },
+        "GCSCertificateThumbprint": {
+            "value": "GCSCertificate.Thumbprint"
+        },
+        "GCSCertificateContent": {
+            "value": "GCSCertificate.Content"
+        },
+    },
+    "secrets": [
+        {
+            "TargetReference": "serviceConfigurationLink",
+            "Replacements": {
+                "ApiBlobServiceStorage001StorageAccountKeyKvSecret_KeyVaultSecret": "https://studio-prod-jae-es.vault.azure.net:443/secrets/esprodjapaneast001-StorageAccount-ActiveKey",
+                "ApiBlobServiceStorage001StorageAccountNameKvSecret_KeyVaultSecret": "https://studio-prod-jae-es.vault.azure.net:443/secrets/esprodjapaneast001-StorageAccount-Name",
+                "AzSecPackAuditBootstrapKeyKvSecret_KeyVaultSecret": "https://studio-prod-jae.vault.azure.net:443/secrets/AzSecPackAuditAutoKey",
+                "AzSecPackSecurityBootstrapKeyKvSecret_KeyVaultSecret": "https://studio-prod-jae.vault.azure.net:443/secrets/AzSecPackSecurityAutoKey",
+                "MdsStorageAccountKeyKvSecret_KeyVaultSecret": "https://studio-prod-jae.vault.azure.net:443/secrets/MdsProdStudioStorageAccount-ActiveKey",
+                "MdsStorageAccountNameKvSecret_KeyVaultSecret": "https://studio-prod-jae.vault.azure.net:443/secrets/MdsProdStudioStorageAccount-Name",
+                "NotebookManagementAccessKeyKvSecret_KeyVaultSecret": "https://studio-prod-jae-es.vault.azure.net:443/secrets/NotebookManagementAccessKey",
+                "SchedulerAuthHeaderKvSecret_KeyVaultSecret": "https://studio-prod-jae-es.vault.azure.net:443/secrets/SchedulerAuthHeader/efe2563323fe4cfba7541dc2c98805e2",
+                "SchedulerAuthHeaderOldKvSecret_KeyVaultSecret": "https://studio-prod-jae-es.vault.azure.net:443/secrets/SchedulerAuthHeader/5886d20702394ba58b4b019b31810613",
+                "ServicePrimaryTableStorageAccount1KeyKvSecret_KeyVaultSecret": "https://studio-prod-jae-es.vault.azure.net:443/secrets/estableprodjapaneast1-StorageAccount-ActiveKey",
+                "ServicePrimaryTableStorageAccount2KeyKvSecret_KeyVaultSecret": "https://studio-prod-jae-es.vault.azure.net:443/secrets/estableprodjapaneast2-StorageAccount-ActiveKey",
+                "ServicePrimaryTableStorageAccount3KeyKvSecret_KeyVaultSecret": "https://studio-prod-jae-es.vault.azure.net:443/secrets/estableprodjapaneast3-StorageAccount-ActiveKey",
+                "ServicePrimaryTableStorageAccount4KeyKvSecret_KeyVaultSecret": "https://studio-prod-jae-es.vault.azure.net:443/secrets/estableprodjapaneast4-StorageAccount-ActiveKey",
+                "ServicePrimaryTableStorageAccount1NameKvSecret_KeyVaultSecret": "https://studio-prod-jae-es.vault.azure.net:443/secrets/estableprodjapaneast1-StorageAccount-Name",
+                "ServicePrimaryTableStorageAccount2NameKvSecret_KeyVaultSecret": "https://studio-prod-jae-es.vault.azure.net:443/secrets/estableprodjapaneast2-StorageAccount-Name",
+                "ServicePrimaryTableStorageAccount3NameKvSecret_KeyVaultSecret": "https://studio-prod-jae-es.vault.azure.net:443/secrets/estableprodjapaneast3-StorageAccount-Name",
+                "ServicePrimaryTableStorageAccount4NameKvSecret_KeyVaultSecret": "https://studio-prod-jae-es.vault.azure.net:443/secrets/estableprodjapaneast4-StorageAccount-Name",
+                "ServiceSecondaryTableStorageAccount1KeyKvSecret_KeyVaultSecret": "https://studio-prod-jae-es.vault.azure.net:443/secrets/estableprodjapanwest1-StorageAccount-ActiveKey",
+                "ServiceSecondaryTableStorageAccount2KeyKvSecret_KeyVaultSecret": "https://studio-prod-jae-es.vault.azure.net:443/secrets/estableprodjapanwest2-StorageAccount-ActiveKey",
+                "ServiceSecondaryTableStorageAccount3KeyKvSecret_KeyVaultSecret": "https://studio-prod-jae-es.vault.azure.net:443/secrets/estableprodjapanwest3-StorageAccount-ActiveKey",
+                "ServiceSecondaryTableStorageAccount4KeyKvSecret_KeyVaultSecret": "https://studio-prod-jae-es.vault.azure.net:443/secrets/estableprodjapanwest4-StorageAccount-ActiveKey",
+                "ServiceSecondaryTableStorageAccount1NameKvSecret_KeyVaultSecret": "https://studio-prod-jae-es.vault.azure.net:443/secrets/estableprodjapanwest1-StorageAccount-Name",
+                "ServiceSecondaryTableStorageAccount2NameKvSecret_KeyVaultSecret": "https://studio-prod-jae-es.vault.azure.net:443/secrets/estableprodjapanwest2-StorageAccount-Name",
+                "ServiceSecondaryTableStorageAccount3NameKvSecret_KeyVaultSecret": "https://studio-prod-jae-es.vault.azure.net:443/secrets/estableprodjapanwest3-StorageAccount-Name",
+                "ServiceSecondaryTableStorageAccount4NameKvSecret_KeyVaultSecret": "https://studio-prod-jae-es.vault.azure.net:443/secrets/estableprodjapanwest4-StorageAccount-Name",
+                "SharedUserStorage001StorageAccountKeyKvSecret_KeyVaultSecret": "https://studio-prod-jae-es.vault.azure.net:443/secrets/esprodjapaneastsus-StorageAccount-ActiveKey",
+                "SharedUserStorage001StorageAccountNameKvSecret_KeyVaultSecret": "https://studio-prod-jae-es.vault.azure.net:443/secrets/esprodjapaneastsus-StorageAccount-Name",
+                "StorageProviderBackupBlobStorageAccountKeyKvSecret_KeyVaultSecret": "https://studio-prod-jae-es.vault.azure.net:443/secrets/esprodjaebu001-StorageAccount-ActiveKey",
+                "StorageProviderBackupBlobStorageAccountNameKvSecret_KeyVaultSecret": "https://studio-prod-jae-es.vault.azure.net:443/secrets/esprodjaebu001-StorageAccount-Name",
+                "ArmHydrationStorageAccountKeyKvSecret_KeyVaultSecret": "https://studio-prod.vault.azure.net:443/secrets/esprodarmhydration-StorageAccount-ActiveKey",
+                "ArmHydrationStorageAccountNameKvSecret_KeyVaultSecret": "https://studio-prod.vault.azure.net:443/secrets/esprodarmhydration-StorageAccount-Name",
+                "MarketoLeadSharedKeyKvSecret_KeyVaultSecret": "https://studio-prod.vault.azure.net:443/secrets/MarketoLeadSharedKey",
+                "AzureEmailOrchestratorAADAppSecretKvSecret_KeyVaultSecret": "https://studio-prod.vault.azure.net:443/secrets/AmlDeploy-ServicePrincipalKey",
+                "AzureEmailOrchestratorAADAppIdKvSecret_KeyVaultSecret": "https://studio-prod.vault.azure.net:443/secrets/Amldeploy-AADAppId",
+            },
+            "Certificates": [
+                {
+	                "Name": "ESPIIPrimaryCertificateKvSecret",
+	                "ContentReference" : "https://studio-prod-jae-es.vault.azure.net:443/secrets/ESPIIPrimaryCert/f800b961de6a4959b3022939826857d1"
+                },
+                {
+	                "Name": "PassauDeployCertificateKvSecret",
+	                "ContentReference" : "https://studio-prod-jae.vault.azure.net:443/secrets/passaudeploycert"
+                },
+                {
+	                "Name": "ResourceProviderClientCertificateKvSecret",
+	                "ContentReference" : "https://studio-prod-jae-es.vault.azure.net:443/secrets/resourceproviderclientcertificate"
+                },
+                {
+	                "Name": "StudioApiSSLCertificateKvSecret",
+	                "ContentReference" : "https://studio-prod-jae-es.vault.azure.net:443/secrets/stardotazuremldotnet"
+                },
+                {
+	                "Name": "StudioClientCertificateAlternateKvSecret",
+	                "ContentReference" : "https://studio-prod-jae-es.vault.azure.net:443/secrets/studioclientcertificate-orig"
+                },
+                {
+	                "Name": "StudioClientCertificateKvSecret",
+	                "ContentReference" : "https://studio-prod-jae-es.vault.azure.net:443/secrets/studioclientcertificate"
+                },
+                {
+	                "Name": "AadAuthCertificateKvSecret",
+	                "ContentReference" : "https://studio-prod.vault.azure.net:443/secrets/aadauthcert"
+                },
+                {
+	                "Name": "AcsTokenCertificateKvSecret",
+	                "ContentReference" : "https://studio-prod-scus-es.vault.azure.net:443/secrets/acsTokenCert/4235db8454734757b590bd4b15fdd874"
+                },
+                {
+	                "Name": "AcsTokenCertificateSecondaryKvSecret",
+	                "ContentReference" : "https://studio-prod-scus-es.vault.azure.net:443/secrets/acsTokenCert/659d25153396411080219a89c57ee060"
+                },
+                {
+	                "Name": "DatalabAnalyticsComCertificateKvSecret",
+	                "ContentReference" : "https://studio-prod.vault.azure.net:443/secrets/datalabanalyticscom"
+                },
+                {
+	                "Name": "DecryptCertificateKvSecret",
+	                "ContentReference" : "https://studio-prod.vault.azure.net:443/secrets/serviceconfigcert/dad68324d213491494bd088276fb22cb"
+                },
+                {
+	                "Name": "GetAllUsersClientCertKvSecret",
+	                "ContentReference" : "https://studio-prod.vault.azure.net:443/secrets/getallusersclientcert"
+                },
+                {
+	                "Name": "MdmCertificateKvSecret",
+	                "ContentReference" : "https://studio-prod.vault.azure.net:443/secrets/mdmcert"
+                },
+                {
+	                "Name": "ServiceConfigCertificateKvSecret",
+	                "ContentReference" : "https://studio-prod.vault.azure.net:443/secrets/serviceconfigcert-ar"
+                },
+                {
+	                "Name": "StudioApiDataMovementClientCertificateKvSecret",
+	                "ContentReference" : "https://studio-prod.vault.azure.net:443/secrets/StudioDatamovementIdentity"
+                },
+                {
+	                "Name": "StudioStageIdentityCertificateKvSecret",
+	                "ContentReference" : "https://studio-prod.vault.azure.net:443/secrets/StudioStageIdentityCertificate"
+                },
+                {
+	                "Name": "GCSCertificate",
+	                "ContentReference" : "https://studio-prod.vault.azure.net:443/secrets/gcscert"
+                },
+            ]
+        }
+    ]
+}

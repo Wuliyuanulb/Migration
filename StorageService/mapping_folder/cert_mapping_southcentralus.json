@@ -1,0 +1,37 @@
+[
+    {
+        "name": "StorageClientCertificate",
+        "sourceUrl": "https://studio-prod-scus-storage.vault.azure.net:443/secrets/storageclientcertificate",
+        "destUrl": "https://studio-scus-MAML-1.vault.azure.net:443/secrets/studio-prod-scus-storage--storageclientcertificate/3f1db752ee8c41b596d4d8dd34573983"
+    },
+    {
+        "name": "StorageServiceSSL",
+        "sourceUrl": "https://studio-prod-scus-storage.vault.azure.net:443/secrets/storageservicessl",
+        "destUrl": "https://studio-scus-MAML-1.vault.azure.net:443/secrets/studio-prod-scus-storage--storageservicessl/73fcf7adb7564b3585ff2980f85bc50b"
+    },
+    {
+        "name": "PIIPrimaryCert",
+        "sourceUrl": "https://studio-prod-scus-storage.vault.azure.net:443/secrets/StoragePIIPrimaryCert/c6691e06226d46889ed4685f1a1c7503",
+        "destUrl": "https://studio-scus-MAML-1.vault.azure.net:443/secrets/studio-prod-scus-storage--StoragePIIPrimaryCert/8a051620946a48eda3e1e0ab8f4ff4c5"
+    },
+    {
+        "name": "PIISecondaryCert",
+        "sourceUrl": "https://studio-prod-scus-storage.vault.azure.net:443/secrets/StoragePIIPrimaryCert/53da77bbb4bb4c378f3abe38a62097d7",
+        "destUrl": "https://studio-scus-MAML-1.vault.azure.net:443/secrets/studio-prod-scus-storage--StoragePIIPrimaryCert/827a6a278a4f4c358f3bbf0a56396570"
+    },
+    {
+        "name": "MdmCertificate",
+        "sourceUrl": "https://studio-prod.vault.azure.net:443/secrets/mdmcert",
+        "destUrl": "https://studio-scus-MAML-1.vault.azure.net:443/secrets/studio-prod--mdmcert/2b1b8417ac384d10ad08f609b52a5bba"
+    },
+    {
+        "name": "ServiceConfig",
+        "sourceUrl": "https://studio-prod.vault.azure.net:443/secrets/serviceconfigcert-ar",
+        "destUrl": "https://studio-scus-MAML-1.vault.azure.net:443/secrets/studio-prod--serviceconfigcert-ar/69e4548409204adca3bfd305b24f8581"
+    },
+    {
+        "name": "GCSCertificate",
+        "sourceUrl": "https://studio-prod.vault.azure.net:443/secrets/gcscert",
+        "destUrl": "https://studio-scus-MAML-1.vault.azure.net:443/secrets/studio-prod--gcscert/485999a2e3a942d99e4484621598f579"
+    }
+]
